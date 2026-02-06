@@ -551,3 +551,48 @@ select {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
+
+/* ================================
+   Filters (Categories) Mobile Fix
+   Target: .filters + .filter-btn only
+================================ */
+
+/* عمودين على الموبايل */
+@media (max-width: 768px) {
+  .filters{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    justify-items: stretch;
+  }
+
+  .filters .filter-btn{
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;     /* يمنع تكسير الكلمة */
+    overflow: hidden;
+    text-overflow: ellipsis; /* لو الاسم طويل */
+  }
+}
+
+/* نخلي شكل الزر ثابت وواضح (زي iPhone) على كل الأجهزة */
+.filters .filter-btn{
+  color: #1a73e8;                 /* أزرق للـ clickable */
+  background: #fff;
+  border: 1px solid #dbe6ff;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 14px;
+  line-height: 1.2;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* يمنع لون الضغط الغريب */
+}
+
+/* الزر المختار (Active) */
+.filters .filter-btn.active,
+.filters .filter-btn[aria-selected="true"]{
+  background: #1a73e8;
+  color: #fff;
+  border-color: #1a73e8;
+}
