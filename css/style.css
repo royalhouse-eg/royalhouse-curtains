@@ -483,3 +483,71 @@ h2{
   .modal-preview{ border-left:none; border-bottom:1px solid #eee; }
   .modal-preview img{ height:320px; }
 }
+
+/* ================================
+   Fix Form UI on Mobile (iPhone + Android)
+   Add this at the END of your CSS file
+================================ */
+
+/* 1) Fix modal width + center it */
+.modal-content,
+.popup-content,
+.form-popup,
+.request-modal {
+  width: 95%;
+  max-width: 520px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* 2) Prevent weird overflow on Android */
+.modal,
+.popup,
+.form-modal {
+  overflow: hidden;
+}
+
+/* 3) Fix inputs + prevent iPhone zoom */
+input,
+select,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px; /* مهم جدا للآيفون */
+  border-radius: 14px;
+}
+
+/* 4) Better spacing on mobile */
+@media (max-width: 768px) {
+  .modal-content,
+  .popup-content,
+  .form-popup,
+  .request-modal {
+    width: 94%;
+    max-width: 94%;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 14px 16px;
+  }
+}
+
+/* 5) Fix select dropdown style on Android/iOS */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none;
+}
+
+/* 6) Make the form scrollable inside modal if needed */
+.modal-body,
+.popup-body,
+.form-body {
+  max-height: 85vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
