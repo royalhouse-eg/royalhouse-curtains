@@ -596,3 +596,36 @@ select {
   color: #fff;
   border-color: #1a73e8;
 }
+
+/* ===== Get Directions Button ===== */
+.directions-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  width:100%;
+  max-width:520px;
+  margin:14px auto 0;
+
+  padding:14px 16px;
+
+  border-radius:16px;
+  border:1px solid var(--text);
+
+  background:var(--text);
+  color:#fff;
+
+  font-size:16px;
+  font-weight:700;
+  text-align:center;
+}
+
+.directions-btn i{
+  font-size:18px;
+}
+
+.directions-btn:hover{
+  background:transparent;
+  color:var(--text);
+}
