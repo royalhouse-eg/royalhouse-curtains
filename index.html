@@ -62,32 +62,39 @@
 <!-- ================= GALLERY ================= -->
 <section id="gallery" class="gallery">
   <div class="container">
+
     <div class="section-head">
       <h2>معرض الصور</h2>
-      <p class="muted">اختار التصنيف لعرض التصميمات </p>
-   <div class="filters filter-grid" role="tablist" aria-label="تصنيفات المعرض">
+      <p class="muted">اختار التصنيف لعرض التصميمات</p>
+    </div>
 
-  <button class="filter-btn filter-card active" data-filter="classic">
-    <span class="cat-title">كلاسيك</span>
-  </button>
+    <div class="filters filter-grid" role="tablist" aria-label="تصنيفات المعرض">
+      <button class="filter-btn filter-card active" data-filter="classic">
+        <span class="cat-title">كلاسيك</span>
+      </button>
 
-  <button class="filter-btn filter-card" data-filter="modern">
-    <span class="cat-title">مودرن</span>
-  </button>
+      <button class="filter-btn filter-card" data-filter="modern">
+        <span class="cat-title">مودرن</span>
+      </button>
 
-  <button class="filter-btn filter-card" data-filter="accessories">
-    <span class="cat-title">اكسسوارات</span>
-  </button>
+      <button class="filter-btn filter-card" data-filter="accessories">
+        <span class="cat-title">اكسسوارات</span>
+      </button>
 
-  <button class="filter-btn filter-card" data-filter="blackout">
-    <span class="cat-title">بلاك اوت / كتان</span>
-  </button>
+      <button class="filter-btn filter-card" data-filter="blackout">
+        <span class="cat-title">بلاك اوت / كتان</span>
+      </button>
 
-  <button class="filter-btn filter-card" data-filter="roller">
-    <span class="cat-title">رول / بلاك / زبرا</span>
-  </button>
+      <button class="filter-btn filter-card" data-filter="roller">
+        <span class="cat-title">رول / بلاك / زبرا</span>
+      </button>
+    </div>
 
-</div>
+    <!-- بيتبني تلقائيًا من JS -->
+    <div class="gallery-grid" id="galleryGrid"></div>
+
+  </div>
+</section>
 
 
     <!-- بيتبني تلقائيًا من JS (بالأرقام 1.jpg, 2.jpg...) -->
@@ -210,5 +217,6 @@
 <script src="js/main.js"></script>
 </body>
 </html>
+
 
 
