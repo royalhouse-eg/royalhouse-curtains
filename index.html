@@ -28,7 +28,7 @@
     <!-- المنيو -->
     <nav class="nav">
       <a href="#home">الرئيسية</a>
-      <a href="#products">المنتجات</a>
+      <a href="#gallery">التصنيفات</a>
       <a href="#gallery">المعرض</a>
       <a href="#order">اطلب الآن</a>
       <a href="#contact">تواصل</a>
@@ -55,18 +55,7 @@
   <div class="hero-content">
     <h1>ROYAL HOUSE</h1>
     <p>Curtains gallery | ستاير مودرن وكلاسيك وخامات مستوردة</p>
-    <a href="#gallery" class="btn">عرض التصميمات</a>
-  </div>
-</section>
-
-<section id="products" class="products">
-  <h2>المنتجات</h2>
-  <div class="product-grid">
-    <div class="product-card">كلاسيك</div>
-    <div class="product-card">مودرن</div>
-    <div class="product-card">اكسسوارات</div>
-    <div class="product-card">بلاك اوت / كتان</div>
-    <div class="product-card">رول / بلاك / زبرا</div>
+    <a href="#gallery" class="btn">شوف التصميمات</a>
   </div>
 </section>
 
@@ -78,14 +67,15 @@
       <p class="muted">اختار التصنيف لعرض التصميمات </p>
     </div>
 
-    <div class="filters" role="tablist" aria-label="تصنيفات المعرض">
-      <button class="filter-btn" data-filter="all">الكل</button>
-      <button class="filter-btn" data-filter="classic">كلاسيك</button>
-      <button class="filter-btn" data-filter="modern">مودرن</button>
-      <button class="filter-btn" data-filter="accessories">اكسسوارات</button>
-      <button class="filter-btn" data-filter="blackout">بلاك اوت / كتان</button>
-      <button class="filter-btn" data-filter="roller">رول / بلاك / زبرا</button>
-    </div>
+    <div class="filters filter-grid" role="tablist" aria-label="تصنيفات المعرض">
+  <button class="filter-btn filter-card active" data-filter="all">الكل</button>
+  <button class="filter-btn filter-card" data-filter="classic">كلاسيك</button>
+  <button class="filter-btn filter-card" data-filter="modern">مودرن</button>
+  <button class="filter-btn filter-card" data-filter="accessories">اكسسوارات</button>
+  <button class="filter-btn filter-card" data-filter="blackout">بلاك اوت / كتان</button>
+  <button class="filter-btn filter-card" data-filter="roller">رول / بلاك / زبرا</button>
+</div>
+
 
     <!-- بيتبني تلقائيًا من JS (بالأرقام 1.jpg, 2.jpg...) -->
     <div class="gallery-grid" id="galleryGrid"></div>
@@ -134,7 +124,6 @@
 <!-- ===== Contact ===== -->
 <section id="contact" class="contact">
   <div class="container">
-
     <p>
       <i class="fa-solid fa-phone"></i>
       <a class="link" href="tel:+201061533348">+20 106 153 3348</a>
@@ -145,27 +134,24 @@
     <p>
       <i class="fa-solid fa-location-dot"></i>
       مركز الحي الثاني نهاية شارع م حسب الله الكفراوي (الصعيدي القديم) بجوار راحه
+      &nbsp;—&nbsp;
+      <a class="link" href="https://maps.app.goo.gl/iwMqokJNvCek7o1fA?g_st=ic" target="_blank">Get Directions</a>
     </p>
-
-    <a class="directions-btn"
-   href="https://maps.app.goo.gl/iwMqokJNvCek7o1fA?g_st=ic"
-   target="_blank">
-  <i class="fa-solid fa-location-dot"></i>
-  افتح لوكيشن المحل على Google Maps
-</a>
-
 
     <div class="map-wrap">
       <iframe
-        src="https://www.google.com/maps?output=embed&q=31.4474875,31.6837223&z=19&t=m"
+        src="https://www.google.com/maps?q=%D9%85%D8%B1%D9%83%D8%B2%20%D8%A7%D9%84%D8%AD%D9%8A%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%20%D9%86%D9%87%D8%A7%D9%8A%D8%A9%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D9%85%20%D8%AD%D8%B3%D8%A8%20%D8%A7%D9%84%D9%84%D9%87%20%D8%A7%D9%84%D9%83%D9%81%D8%B1%D8%A7%D9%88%D9%8A%20%D8%A8%D8%AC%D9%88%D8%A7%D8%B1%20%D8%B1%D8%A7%D8%AD%D8%A9&output=embed"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         title="Royal House Location"
       ></iframe>
     </div>
-
   </div>
 </section>
+
+<footer class="footer">
+  <p>© ROYAL HOUSE – Curtains gallery</p>
+</footer>
 
 <!-- ===== Order Modal (from Gallery image) ===== -->
 <div class="modal" id="orderModal" aria-hidden="true">
@@ -211,13 +197,3 @@
 <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
