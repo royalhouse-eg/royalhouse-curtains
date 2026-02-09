@@ -168,31 +168,55 @@ h2{
 }
 
 /* ===== Gallery ===== */
-.gallery{border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
-.filters{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin:12px 0 18px;
+/* ===== Gallery (Mobile-first) ===== */
+.gallery{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
-.filter-btn{
+
+/* ===== Categories as big cards (MOBILE FIRST) ===== */
+.filters.filter-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:12px;
+  margin:14px 0 18px;
+}
+
+.filter-btn.filter-card{
+  width:100%;
   border:1px solid var(--line);
-  background:transparent;
-  padding:10px 14px;
-  border-radius:999px;
+  background:#fff;
+  padding:18px 12px;
+  border-radius:14px;
   cursor:pointer;
   font-family:inherit;
-  font-size:14px;
+  font-size:16px;
+  font-weight:800;
+  line-height:1.2;
+  min-height:72px;            /* يخليهم شكل منتجات */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  transition:.15s ease;
+  -webkit-tap-highlight-color: transparent; /* موبايل */
 }
-.filter-btn.active{
+
+.filter-btn.filter-card:active{
+  transform:scale(0.98);
+}
+
+.filter-btn.filter-card.active{
   border-color:var(--text);
 }
 
+/* ===== Gallery grid (MOBILE FIRST) ===== */
 .gallery-grid{
   display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:12px;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:10px;
 }
+
 .g-item{
   margin:0;
   border:1px solid var(--line);
@@ -202,14 +226,56 @@ h2{
   background:#fafafa;
   position:relative;
 }
+
 .g-item img{
   width:100%;
-  height:220px;
+  height:220px;     /* مناسب للموبايل */
   object-fit:cover;
   display:block;
-  transition: transform .25s ease;
+  transition: transform .2s ease;
 }
-.g-item:hover img{transform:scale(1.03)}
+
+/* hover بس للديسكتوب */
+@media (hover:hover){
+  .g-item:hover img{ transform:scale(1.04); }
+  .filter-btn.filter-card:hover{ transform:translateY(-2px); }
+}
+
+/* ===== Tablets ===== */
+@media (min-width:700px){
+  .filters.filter-grid{
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:14px;
+    margin:16px 0 22px;
+  }
+  .filter-btn.filter-card{
+    font-size:17px;
+    min-height:78px;
+    padding:20px 12px;
+  }
+
+  .gallery-grid{
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:14px;
+  }
+  .g-item img{
+    height:240px;
+  }
+}
+
+/* ===== Desktop ===== */
+@media (min-width:1024px){
+  .filters.filter-grid{
+    grid-template-columns:repeat(5, minmax(0, 1fr));
+  }
+  .gallery-grid{
+    grid-template-columns:repeat(4, minmax(0, 1fr));
+    gap:16px;
+  }
+  .g-item img{
+    height:260px;
+  }
+}
 
 /* زر طلب على كل صورة */
 .g-item .order-btn{
@@ -482,150 +548,4 @@ h2{
   .modal-grid{ grid-template-columns: 1fr; }
   .modal-preview{ border-left:none; border-bottom:1px solid #eee; }
   .modal-preview img{ height:320px; }
-}
-
-/* ================================
-   Fix Form UI on Mobile (iPhone + Android)
-   Add this at the END of your CSS file
-================================ */
-
-/* 1) Fix modal width + center it */
-.modal-content,
-.popup-content,
-.form-popup,
-.request-modal {
-  width: 95%;
-  max-width: 520px;
-  margin: 0 auto;
-  border-radius: 18px;
-  overflow: hidden;
-}
-
-/* 2) Prevent weird overflow on Android */
-.modal,
-.popup,
-.form-modal {
-  overflow: hidden;
-}
-
-/* 3) Fix inputs + prevent iPhone zoom */
-input,
-select,
-textarea {
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 16px; /* مهم جدا للآيفون */
-  border-radius: 14px;
-}
-
-/* 4) Better spacing on mobile */
-@media (max-width: 768px) {
-  .modal-content,
-  .popup-content,
-  .form-popup,
-  .request-modal {
-    width: 94%;
-    max-width: 94%;
-  }
-
-  input,
-  select,
-  textarea {
-    padding: 14px 16px;
-  }
-}
-
-/* 5) Fix select dropdown style on Android/iOS */
-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: none;
-}
-
-/* 6) Make the form scrollable inside modal if needed */
-.modal-body,
-.popup-body,
-.form-body {
-  max-height: 85vh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* ================================
-   Filters (Categories) Mobile Fix
-   Target: .filters + .filter-btn only
-================================ */
-
-/* عمودين على الموبايل */
-@media (max-width: 768px) {
-  .filters{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    width: 100%;
-    justify-items: stretch;
-  }
-
-  .filters .filter-btn{
-    width: 100%;
-    text-align: center;
-    white-space: nowrap;     /* يمنع تكسير الكلمة */
-    overflow: hidden;
-    text-overflow: ellipsis; /* لو الاسم طويل */
-  }
-}
-
-/* نخلي شكل الزر ثابت وواضح (زي iPhone) على كل الأجهزة */
-.filters .filter-btn{
-  color: #1a73e8;                 /* أزرق للـ clickable */
-  background: #fff;
-  border: 1px solid #dbe6ff;
-  border-radius: 999px;
-  padding: 10px 14px;
-  font-size: 14px;
-  line-height: 1.2;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent; /* يمنع لون الضغط الغريب */
-}
-
-/* الزر المختار (Active) */
-.filters .filter-btn.active,
-.filters .filter-btn[aria-selected="true"]{
-  background: #1a73e8;
-  color: #fff;
-  border-color: #1a73e8;
-}
-
-/* ===== Get Directions Button ===== */
-.directions-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-
-  width:100%;
-  max-width:520px;
-  margin:14px auto 0;
-
-  padding:14px 16px;
-
-  border-radius:16px;
-  border:1px solid var(--text);
-
-  background:var(--text);
-  color:#fff;
-
-  font-size:16px;
-  font-weight:700;
-  text-align:center;
-}
-
-.directions-btn i{
-  font-size:18px;
-}
-
-.directions-btn:hover{
-  background:transparent;
-  color:var(--text);
 }
