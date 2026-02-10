@@ -113,10 +113,11 @@ function initFiltersToggle() {
         activeFilter = null;
         filterBtns.forEach(b => b.classList.remove("active"));
         galleryItems.forEach(item => item.classList.add("hidden"));
+        btn.blur(); // ⭐ مهم
         return;
       }
 
-      // افتح التصنيف الجديد
+      // افتح تصنيف جديد
       activeFilter = filter;
       filterBtns.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
@@ -126,9 +127,12 @@ function initFiltersToggle() {
         if (cat === filter) item.classList.remove("hidden");
         else item.classList.add("hidden");
       });
+
+      btn.blur(); // ⭐ مهم
     });
   });
 }
+
 
 // ✅ فتح تصنيف افتراضي عند تحميل الصفحة
 function openDefaultFilter(filterName) {
@@ -320,3 +324,4 @@ if (menuToggle && navMenu) {
     }
   });
 }
+
