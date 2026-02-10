@@ -85,6 +85,8 @@ function buildGallery() {
 
   // نخفي كل الصور عند تحميل الصفحة (مش هتظهر إلا بعد اختيار تصنيف)
   document.querySelectorAll(".g-item").forEach(item => item.classList.add("hidden"));
+document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+document.activeElement && document.activeElement.blur && document.activeElement.blur();
 
   initFiltersToggle();
   initLightbox();
@@ -331,4 +333,5 @@ document.addEventListener("DOMContentLoaded", () => {
   toggleShrink(); // لو الصفحة اتفتحت وهي نازلة
   window.addEventListener("scroll", toggleShrink, { passive: true });
 });
+
 
