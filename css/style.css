@@ -663,6 +663,40 @@ h2{
 .header.shrink .container{
   padding:6px 0; /* يقل الارتفاع */
 }
+/* ===== Header shrink (FOR MOBILE) ===== */
+@media (max-width: 980px){
+
+  /* الحالة الطبيعية على الموبايل */
+  .header .container{
+    padding:12px 0 !important;
+  }
+
+  .header .logo{
+    height:56px !important;
+    transition: all .25s ease;
+  }
+
+  /* بعد الاسكرول */
+  .header.shrink .container{
+    padding:6px 0 !important;
+  }
+
+  .header.shrink .logo{
+    height:42px !important;
+  }
+
+  /* اختياري: صغّر الأيقونات شوية مع الاسكرول */
+  .header.shrink .social-icons a{
+    width:34px;
+    height:34px;
+  }
+
+  .header.shrink .menu-toggle{
+    width:38px;
+    height:38px;
+  }
+}
+
 
 
 
