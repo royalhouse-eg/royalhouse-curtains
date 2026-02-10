@@ -634,5 +634,35 @@ h2{
 .filter-btn.filter-card.active .cat-title{
   color:#fff;
 }
+/* ===== Header shrink on scroll ===== */
+.header{
+  transition: all .25s ease;
+}
+
+/* الحالة الطبيعية */
+.header .logo{
+  height:62px;
+  transition: all .25s ease;
+}
+
+.header .container{
+  padding:12px 0;
+  transition: all .25s ease;
+}
+
+/* ===== بعد الاسكرول ===== */
+.header.shrink{
+  background:rgba(255,255,255,.97);
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+
+.header.shrink .logo{
+  height:46px;   /* يصغر اللوجو */
+}
+
+.header.shrink .container{
+  padding:6px 0; /* يقل الارتفاع */
+}
+
 
 
