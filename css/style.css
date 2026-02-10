@@ -26,7 +26,10 @@ a{color:inherit; text-decoration:none}
 .muted{color:var(--muted); margin:0}
 
 .hidden{ display:none !important; }
-/* ===== Header (FINAL) ===== */
+
+/* =========================================================
+   HEADER (FINAL) - ثابت + يصغر مع الاسكرول (موبايل + ديسكتوب)
+========================================================= */
 .header{
   --padY: 14px;
   --logoH: 78px;
@@ -99,7 +102,7 @@ a{color:inherit; text-decoration:none}
   color:var(--text);
 }
 
-/* ===== Shrink after scroll ===== */
+/* بعد الاسكرول */
 .header.shrink{
   --padY: 6px;
   --logoH: 46px;
@@ -108,7 +111,7 @@ a{color:inherit; text-decoration:none}
   box-shadow:0 6px 18px rgba(0,0,0,.08);
 }
 
-/* ===== Mobile ===== */
+/* موبايل */
 @media (max-width:980px){
   .header{
     --padY: 12px;
@@ -121,8 +124,9 @@ a{color:inherit; text-decoration:none}
   }
 }
 
-
-/* ===== Hero ===== */
+/* =========================================================
+   HERO
+========================================================= */
 .hero{
   min-height:70vh;
   display:flex;
@@ -165,73 +169,97 @@ a{color:inherit; text-decoration:none}
   color:#111;
 }
 
-/* ===== Sections ===== */
+/* =========================================================
+   SECTIONS
+========================================================= */
 section{padding:54px 0}
-.section-head{
-  display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:18px;
-}
+
 h2{
   margin:0;
   font-size:26px;
   letter-spacing:.3px;
 }
 
-/* ===== Products ===== */
-.products h2{ text-align:center; margin-bottom:18px; }
-.product-grid{
-  width:min(var(--max), calc(100% - 32px));
-  margin-inline:auto;
-  display:grid;
-  grid-template-columns:repeat(5, 1fr);
-  gap:14px;
-}
-.product-card{
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:18px;
-  min-height:90px;
-  display:grid;
-  place-items:center;
-  color:var(--text);
-}
-
-/* ===== Gallery ===== */
-/* ===== Gallery (Mobile-first) ===== */
+/* =========================================================
+   GALLERY SECTION
+========================================================= */
 .gallery{
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
 }
 
-/* ===== Categories as big cards (MOBILE FIRST) ===== */
+/* ===== Gallery Head (Premium spacing) ===== */
+.section-head{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap:8px;
+  margin-bottom:26px;
+}
+
+.section-head h2{
+  font-size:28px;
+  font-weight:600;
+  letter-spacing:.2px;
+  margin:0;
+}
+
+.section-head .muted{
+  font-size:14px;
+  font-weight:400;
+  color:#777;
+  margin:0;
+}
+
+@media (max-width: 980px){
+  .section-head{
+    margin-bottom:22px;
+  }
+  .section-head h2{
+    font-size:26px;
+  }
+  .section-head .muted{
+    font-size:13px;
+  }
+}
+
+/* =========================================================
+   CATEGORY CARDS (Mobile Full Width)
+========================================================= */
 .filters.filter-grid{
   display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:12px;
-  margin:14px 0 18px;
+  grid-template-columns:1fr;      /* كارت بعرض الصفحة */
+  gap:16px;
+  margin:18px 0 24px;
 }
 
 .filter-btn.filter-card{
   width:100%;
-  border:1px solid var(--line);
-  background:#fff;
-  padding:18px 12px;
-  border-radius:14px;
+  border:none;
+  background:#f5f5f5;
+  border-radius:22px;
+  padding:22px 20px;
   cursor:pointer;
-  font-family:inherit;
-  font-size:16px;
-  font-weight:800;
-  line-height:1.2;
-  min-height:72px;            /* يخليهم شكل منتجات */
+
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  transition:.15s ease;
-  -webkit-tap-highlight-color: transparent; /* موبايل */
+
+  box-shadow:0 10px 28px rgba(0,0,0,0.08);
+  transition:.2s ease;
+
+  -webkit-tap-highlight-color: transparent;
+
+  color:#111;
+}
+
+.filter-btn.filter-card .cat-title{
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:.3px;
+  color:#111;
 }
 
 .filter-btn.filter-card:active{
@@ -239,20 +267,51 @@ h2{
 }
 
 .filter-btn.filter-card.active{
-  border-color:var(--text);
+  background:#111;
+}
+.filter-btn.filter-card.active .cat-title{
+  color:#fff;
 }
 
-/* ===== Gallery grid (MOBILE FIRST) ===== */
+/* منع الـ focus يغير لون كروت التصنيفات */
+.filter-btn.filter-card:focus,
+.filter-btn.filter-card:focus-visible{
+  outline: none;
+  background: #f5f5f5;
+}
+
+.filter-btn.filter-card:focus .cat-title,
+.filter-btn.filter-card:focus-visible .cat-title{
+  color:#111;
+}
+
+/* Tablet */
+@media (min-width:768px){
+  .filters.filter-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width:1024px){
+  .filters.filter-grid{
+    grid-template-columns:repeat(3, 1fr);
+  }
+}
+
+/* =========================================================
+   GALLERY GRID
+========================================================= */
 .gallery-grid{
   display:grid;
   grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:10px;
+  gap:12px;
 }
 
 .g-item{
   margin:0;
   border:1px solid var(--line);
-  border-radius:14px;
+  border-radius:16px;
   overflow:hidden;
   cursor:pointer;
   background:#fafafa;
@@ -261,52 +320,15 @@ h2{
 
 .g-item img{
   width:100%;
-  height:220px;     /* مناسب للموبايل */
+  height:220px;
   object-fit:cover;
   display:block;
   transition: transform .2s ease;
 }
 
-/* hover بس للديسكتوب */
+/* Hover للديسكتوب فقط */
 @media (hover:hover){
   .g-item:hover img{ transform:scale(1.04); }
-  .filter-btn.filter-card:hover{ transform:translateY(-2px); }
-}
-
-/* ===== Tablets ===== */
-@media (min-width:700px){
-  .filters.filter-grid{
-    grid-template-columns:repeat(3, minmax(0, 1fr));
-    gap:14px;
-    margin:16px 0 22px;
-  }
-  .filter-btn.filter-card{
-    font-size:17px;
-    min-height:78px;
-    padding:20px 12px;
-  }
-
-  .gallery-grid{
-    grid-template-columns:repeat(3, minmax(0, 1fr));
-    gap:14px;
-  }
-  .g-item img{
-    height:240px;
-  }
-}
-
-/* ===== Desktop ===== */
-@media (min-width:1024px){
-  .filters.filter-grid{
-    grid-template-columns:repeat(5, minmax(0, 1fr));
-  }
-  .gallery-grid{
-    grid-template-columns:repeat(4, minmax(0, 1fr));
-    gap:16px;
-  }
-  .g-item img{
-    height:260px;
-  }
 }
 
 /* زر طلب على كل صورة */
@@ -327,15 +349,39 @@ h2{
 .g-item .order-btn i{font-size:13px;}
 .g-item .order-btn:hover{ background:#fff; }
 
-/* ===== Order ===== */
+/* Tablets */
+@media (min-width:700px){
+  .gallery-grid{
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:14px;
+  }
+  .g-item img{ height:240px; }
+}
+
+/* Desktop */
+@media (min-width:1024px){
+  .gallery-grid{
+    grid-template-columns:repeat(4, minmax(0, 1fr));
+    gap:16px;
+  }
+  .g-item img{ height:260px; }
+}
+
+/* =========================================================
+   ORDER FORM
+========================================================= */
 .order h2{ text-align:center; margin-bottom:18px; }
+
 #orderForm{
   width:min(720px, calc(100% - 32px));
   margin-inline:auto;
   display:grid;
   gap:12px;
 }
-#orderForm input, #orderForm select, #orderForm textarea{
+
+#orderForm input,
+#orderForm select,
+#orderForm textarea{
   padding:12px 12px;
   border:1px solid var(--line);
   border-radius:12px;
@@ -343,7 +389,12 @@ h2{
   font-size:15px;
   outline:none;
 }
-#orderForm textarea{min-height:110px; resize:vertical}
+
+#orderForm textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
 #orderForm button{
   padding:12px 14px;
   border:1px solid var(--btn);
@@ -359,10 +410,13 @@ h2{
   color:var(--text);
 }
 
-/* ===== Contact ===== */
+/* =========================================================
+   CONTACT
+========================================================= */
 .contact{
   text-align:center;
 }
+
 .link{
   border-bottom:1px solid transparent;
   padding-bottom:2px;
@@ -382,7 +436,9 @@ h2{
   border:0;
 }
 
-/* ===== Footer ===== */
+/* =========================================================
+   FOOTER
+========================================================= */
 .footer{
   border-top:1px solid var(--line);
   padding:18px 0;
@@ -390,7 +446,9 @@ h2{
   color:var(--muted);
 }
 
-/* ===== Lightbox ===== */
+/* =========================================================
+   LIGHTBOX
+========================================================= */
 .lightbox{
   position:fixed;
   inset:0;
@@ -402,6 +460,7 @@ h2{
   padding:18px;
 }
 .lightbox.open{display:flex}
+
 .lightbox img{
   max-width:min(980px, 92vw);
   max-height:82vh;
@@ -409,6 +468,7 @@ h2{
   border:1px solid rgba(255,255,255,.18);
   background:#000;
 }
+
 .lb-close{
   position:absolute;
   top:14px;
@@ -423,6 +483,7 @@ h2{
   display:grid;
   place-items:center;
 }
+
 .lb-nav{
   position:absolute;
   top:50%;
@@ -440,9 +501,12 @@ h2{
 .lb-prev{right:14px}
 .lb-next{left:14px}
 
-/* ===== Modal (order from image) ===== */
+/* =========================================================
+   MODAL (Order from image)
+========================================================= */
 .modal{
-  position:fixed; inset:0;
+  position:fixed;
+  inset:0;
   background:rgba(0,0,0,.55);
   display:none;
   z-index:1000;
@@ -458,6 +522,7 @@ h2{
   position:relative;
   overflow:hidden;
 }
+
 .modal-close{
   position:absolute;
   top:10px; right:10px;
@@ -470,16 +535,19 @@ h2{
   place-items:center;
   z-index:5;
 }
+
 .modal-grid{
   display:grid;
   grid-template-columns: 1fr 1fr;
   gap:0;
 }
+
 .modal-preview{
   padding:14px;
   border-left:1px solid #eee;
   background:#fafafa;
 }
+
 .modal-preview img{
   width:100%;
   height:420px;
@@ -488,21 +556,36 @@ h2{
   border:1px solid #eee;
   display:block;
 }
+
 .modal-form{
   padding:18px;
   display:grid;
   gap:10px;
 }
+
 .modal-form h3{ margin:0 0 6px; }
-.modal-form input, .modal-form select, .modal-form textarea{
+
+.modal-form input,
+.modal-form select,
+.modal-form textarea{
   padding:12px;
   border:1px solid #e7e7e7;
   border-radius:12px;
   font-family:inherit;
   font-size:15px;
 }
-.modal-form textarea{ min-height:110px; resize:vertical; }
-.two{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+
+.modal-form textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+.two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
 .btn-block{
   padding:12px 14px;
   border:1px solid #111;
@@ -515,17 +598,17 @@ h2{
 }
 .btn-block:hover{ background:transparent; color:#111; }
 
-/* ===== Responsive ===== */
+/* =========================================================
+   RESPONSIVE NAV (Mobile menu)
+========================================================= */
 @media (max-width: 980px){
-  /* الهيدر موبايل: لوجو شمال - سوشيال وسط - زر منيو يمين */
-  .header{ position:relative; }
 
   .header .container{
-    direction:ltr; /* يثبت الشمال/اليمين */
+    direction:ltr;
     justify-content:space-between;
   }
 
-  .logo{ order:1; }
+  .header .logo{ order:1; }
 
   .social-icons{
     order:2;
@@ -539,7 +622,6 @@ h2{
     order:3;
   }
 
-  /* Dropdown Menu */
   .nav{
     display:none;
     direction:rtl;
@@ -570,249 +652,13 @@ h2{
   }
 
   .nav.open a:last-child{ border-bottom:none; }
-
-  /* باقي الريسبونسيف */
-  .product-grid{grid-template-columns:repeat(2, 1fr)}
-  .gallery-grid{grid-template-columns:repeat(2, 1fr)}
 }
 
+/* =========================================================
+   MODAL MOBILE
+========================================================= */
 @media (max-width: 900px){
   .modal-grid{ grid-template-columns: 1fr; }
   .modal-preview{ border-left:none; border-bottom:1px solid #eee; }
   .modal-preview img{ height:320px; }
 }
-/* ===== Gallery Category Cards (Mobile First) ===== */
-
-/* حاوية التصنيفات */
-.filters.filter-grid{
-  display:grid;
-  grid-template-columns:1fr;      /* كارت بعرض الصفحة */
-  gap:16px;
-  margin:18px 0 24px;
-}
-
-/* الكارت */
-.filter-btn.filter-card{
-  width:100%;
-  border:none;
-  background:#f5f5f5;
-  border-radius:22px;
-  padding:22px 20px;
-  cursor:pointer;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  box-shadow:0 10px 28px rgba(0,0,0,0.08);
-  transition:.2s ease;
-
-  /* منع اللون الأزرق */
-  color:#111;
-}
-
-/* نص العنوان */
-.filter-btn.filter-card .cat-title{
-  font-size:20px;
-  font-weight:700;
-  letter-spacing:.3px;
-  color:#111;
-}
-
-/* لمسة الضغط على الموبايل */
-.filter-btn.filter-card:active{
-  transform:scale(0.98);
-}
-
-/* الحالة النشطة */
-.filter-btn.filter-card.active{
-  background:#111;
-}
-
-.filter-btn.filter-card.active .cat-title{
-  color:#fff;
-}
-
-/* ===== Tablet ===== */
-@media (min-width:768px){
-  .filters.filter-grid{
-    grid-template-columns:repeat(2, 1fr);
-  }
-}
-
-/* ===== Desktop ===== */
-@media (min-width:1024px){
-  .filters.filter-grid{
-    grid-template-columns:repeat(3, 1fr);
-  }
-}
-
-
-/* منع الـ focus يغير لون كروت التصنيفات */
-.filter-btn.filter-card:focus,
-.filter-btn.filter-card:focus-visible{
-  outline: none;
-  background: #f5f5f5;   /* نفس اللون الفاتح */
-  color: #111;
-}
-
-.filter-btn.filter-card:focus .cat-title,
-.filter-btn.filter-card:focus-visible .cat-title{
-  color:#111;
-}
-
-/* تأكيد: الغامق فقط للـ active */
-.filter-btn.filter-card.active{
-  background:#111;
-  color:#fff;
-}
-.filter-btn.filter-card.active .cat-title{
-  color:#fff;
-}
-/* ===== Header shrink (Mobile + Desktop) ===== */
-.header{
-  --logoH: 78px;
-  --padY: 14px;
-  transition: background .25s ease, box-shadow .25s ease;
-}
-
-.header .container{
-  padding: var(--padY) 0 !important;
-  transition: padding .25s ease;
-}
-
-.header .logo{
-  height: var(--logoH) !important;
-  width:auto;
-  transition: height .25s ease;
-}
-
-/* بعد الاسكرول */
-.header.shrink{
-  --logoH: 46px;
-  --padY: 6px;
-  background:rgba(255,255,255,.97);
-  box-shadow:0 6px 18px rgba(0,0,0,.08);
-}
-
-/* ===== Mobile ===== */
-@media (max-width: 980px){
-  .header{ --logoH:56px; --padY:12px; }
-  .header.shrink{ --logoH:42px; --padY:6px; }
-
-  .header.shrink .social-icons a{
-    width:34px;
-    height:34px;
-  }
-  .header.shrink .menu-toggle{
-    transform: scale(.95);
-  }
-}
-
-/* ===== Header shrink (Mobile + Desktop) ===== */
-.header{
-  --logoH: 78px;
-  --padY: 14px;
-
-  transition: background .25s ease, box-shadow .25s ease;
-}
-
-.header .container{
-  padding: var(--padY) 0;
-  transition: padding .25s ease;
-}
-
-.header .logo{
-  height: var(--logoH);
-  width:auto;
-  transition: height .25s ease;
-}
-
-/* بعد الاسكرول */
-.header.shrink{
-  --logoH: 46px;
-  --padY: 6px;
-
-  background:rgba(255,255,255,.97);
-  box-shadow:0 6px 18px rgba(0,0,0,.08);
-}
-
-/* ===== Mobile ===== */
-@media (max-width: 980px){
-  /* الحالة الطبيعية على الموبايل */
-  .header{
-    --logoH: 56px;
-    --padY: 12px;
-  }
-
-  /* بعد الاسكرول */
-  .header.shrink{
-    --logoH: 42px;
-    --padY: 6px;
-  }
-
-  /* صغّر الأيقونات شوية مع الاسكرول */
-  .header.shrink .social-icons a{
-    width:34px;
-    height:34px;
-  }
-
-  /* لو حابب تصغير زر المنيو (اختياري) */
-  .header.shrink .menu-toggle{
-    transform: scale(.95);
-  }
-}
-
-/* ===== Contact خطوط ===== */
-.contact-line{
-  margin:10px 0;
-  line-height:1.8;
-}
-.contact-line i{
-  margin-left:6px;
-}
-.directions{
-  font-weight:600;
-}
-/* ===== Gallery Head (Premium spacing) ===== */
-.section-head{
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap:8px;
-  margin-bottom:26px;   /* مسافة أحلى قبل التصنيفات */
-}
-
-/* العنوان الرئيسي */
-.section-head h2{
-  font-size:28px;
-  font-weight:600;
-  letter-spacing:.2px;
-  margin:0;
-}
-
-/* النص الصغير */
-.section-head .muted{
-  font-size:14px;
-  font-weight:400;
-  color:#777;
-  margin:0;
-}
-
-/* موبايل */
-@media (max-width: 980px){
-  .section-head{
-    margin-bottom:22px;
-  }
-
-  .section-head h2{
-    font-size:26px;
-  }
-
-  .section-head .muted{
-    font-size:13px;
-  }
-}
-
-
-
