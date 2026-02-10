@@ -19,7 +19,7 @@
 <header class="header">
   <div class="container">
 
-    <!-- اللوجو شمال -->
+    <!-- اللوجو -->
     <img src="images/logo.png" alt="Royal House Logo" class="logo">
 
     <!-- زرار المنيو للموبايل -->
@@ -28,7 +28,6 @@
     <!-- المنيو -->
     <nav class="nav">
       <a href="#home">الرئيسية</a>
-      <a href="#gallery">التصنيفات</a>
       <a href="#gallery">المعرض</a>
       <a href="#order">اطلب الآن</a>
       <a href="#contact">تواصل</a>
@@ -36,13 +35,13 @@
 
     <!-- السوشيال -->
     <div class="social-icons">
-      <a href="https://www.facebook.com/share/1EacKgLkxf/?mibextid=wwXIfr" target="_blank">
+      <a href="https://www.facebook.com/share/1EacKgLkxf/?mibextid=wwXIfr" target="_blank" rel="noopener">
         <i class="fa-brands fa-facebook-f"></i>
       </a>
-      <a href="https://www.instagram.com/royal.house_eg" target="_blank">
+      <a href="https://www.instagram.com/royal.house_eg" target="_blank" rel="noopener">
         <i class="fa-brands fa-instagram"></i>
       </a>
-      <a href="https://www.tiktok.com/@royal.house_eg" target="_blank">
+      <a href="https://www.tiktok.com/@royal.house_eg" target="_blank" rel="noopener">
         <i class="fa-brands fa-tiktok"></i>
       </a>
     </div>
@@ -69,23 +68,23 @@
     </div>
 
     <div class="filters filter-grid" role="tablist" aria-label="تصنيفات المعرض">
-      <button class="filter-btn filter-card active" data-filter="classic">
+      <button class="filter-btn filter-card active" data-filter="classic" type="button">
         <span class="cat-title">كلاسيك</span>
       </button>
 
-      <button class="filter-btn filter-card" data-filter="modern">
+      <button class="filter-btn filter-card" data-filter="modern" type="button">
         <span class="cat-title">مودرن</span>
       </button>
 
-      <button class="filter-btn filter-card" data-filter="accessories">
+      <button class="filter-btn filter-card" data-filter="accessories" type="button">
         <span class="cat-title">اكسسوارات</span>
       </button>
 
-      <button class="filter-btn filter-card" data-filter="blackout">
+      <button class="filter-btn filter-card" data-filter="blackout" type="button">
         <span class="cat-title">بلاك اوت / كتان</span>
       </button>
 
-      <button class="filter-btn filter-card" data-filter="roller">
+      <button class="filter-btn filter-card" data-filter="roller" type="button">
         <span class="cat-title">رول / بلاك / زبرا</span>
       </button>
     </div>
@@ -96,25 +95,19 @@
   </div>
 </section>
 
-
-    <!-- بيتبني تلقائيًا من JS (بالأرقام 1.jpg, 2.jpg...) -->
-    <div class="gallery-grid" id="galleryGrid"></div>
-  </div>
-</section>
-
 <!-- ===== Lightbox ===== -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
-  <button class="lb-close" id="lbClose" aria-label="Close">
+  <button class="lb-close" id="lbClose" aria-label="Close" type="button">
     <i class="fa-solid fa-xmark"></i>
   </button>
 
-  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous" type="button">
     <i class="fa-solid fa-angle-right"></i>
   </button>
 
   <img id="lbImg" alt="Gallery image preview" />
 
-  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next" type="button">
     <i class="fa-solid fa-angle-left"></i>
   </button>
 </div>
@@ -148,14 +141,14 @@
       <i class="fa-solid fa-phone"></i>
       <a class="link" href="tel:+201061533348">+20 106 153 3348</a>
       &nbsp;|&nbsp;
-      <a class="link" href="https://wa.me/201061533348" target="_blank">WhatsApp</a>
+      <a class="link" href="https://wa.me/201061533348" target="_blank" rel="noopener">WhatsApp</a>
     </p>
 
     <p>
       <i class="fa-solid fa-location-dot"></i>
       مركز الحي الثاني نهاية شارع م حسب الله الكفراوي (الصعيدي القديم) بجوار راحه
       &nbsp;—&nbsp;
-      <a class="link" href="https://maps.app.goo.gl/iwMqokJNvCek7o1fA?g_st=ic" target="_blank">Get Directions</a>
+      <a class="link" href="https://maps.app.goo.gl/iwMqokJNvCek7o1fA?g_st=ic" target="_blank" rel="noopener">Get Directions</a>
     </p>
 
     <div class="map-wrap">
@@ -177,7 +170,7 @@
 <div class="modal" id="orderModal" aria-hidden="true">
   <div class="modal-card" role="dialog" aria-modal="true" aria-label="طلب تصميم">
 
-    <button class="modal-close" id="orderClose" aria-label="إغلاق">
+    <button class="modal-close" id="orderClose" aria-label="إغلاق" type="button">
       <i class="fa-solid fa-xmark"></i>
     </button>
 
@@ -217,6 +210,3 @@
 <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
