@@ -308,5 +308,18 @@ if (menuToggle && navMenu) {
     }
   });
 }
+// ===== Header shrink on scroll =====
+const header = document.querySelector(".header");
+
+window.addEventListener("scroll", () => {
+  if (!header) return;
+
+  if (window.scrollY > 60) {
+    header.classList.add("shrink");
+  } else {
+    header.classList.remove("shrink");
+  }
+});
+
 
 
