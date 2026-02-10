@@ -255,13 +255,12 @@ h2{
   color:#111;
 }
 
-.filter-btn.filter-card .cat-title{
-  font-size:17px;
+filter-btn.filter-card .cat-title{
+  font-size:18px;
   font-weight:600;
   letter-spacing:0;
   color:#111;
 }
-
 
 .filter-btn.filter-card:active{
   transform:scale(0.98);
