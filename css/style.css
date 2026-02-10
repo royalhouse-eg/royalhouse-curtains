@@ -256,11 +256,12 @@ h2{
 }
 
 .filter-btn.filter-card .cat-title{
-  font-size:20px;
-  font-weight:700;
-  letter-spacing:.3px;
+  font-size:17px;
+  font-weight:600;
+  letter-spacing:0;
   color:#111;
 }
+
 
 .filter-btn.filter-card:active{
   transform:scale(0.98);
@@ -662,3 +663,4 @@ h2{
   .modal-preview{ border-left:none; border-bottom:1px solid #eee; }
   .modal-preview img{ height:320px; }
 }
+
