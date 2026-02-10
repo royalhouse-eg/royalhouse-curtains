@@ -613,6 +613,9 @@ h2{
   .filters.filter-grid{
     grid-template-columns:repeat(3, 1fr);
   }
+}
+
+
 /* منع الـ focus يغير لون كروت التصنيفات */
 .filter-btn.filter-card:focus,
 .filter-btn.filter-card:focus-visible{
@@ -697,6 +700,33 @@ h2{
   }
 }
 
+/* ===== Header shrink (Mobile + Desktop) ===== */
+.header{
+  --logoH: 78px;
+  --padY: 14px;
+  transition: background .25s ease, box-shadow .25s ease;
+}
 
+.header .container{
+  padding: var(--padY) 0 !important;
+  transition: padding .25s ease;
+}
 
+.header .logo{
+  height: var(--logoH) !important;
+  transition: height .25s ease;
+}
 
+/* لما يحصل scroll */
+.header.shrink{
+  --logoH: 46px;
+  --padY: 6px;
+  background:rgba(255,255,255,.97);
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+
+/* موبايل */
+@media (max-width: 980px){
+  .header{ --logoH: 56px; --padY: 12px; }
+  .header.shrink{ --logoH: 42px; --padY: 6px; }
+}
