@@ -88,6 +88,9 @@ function buildGallery() {
 
   initFiltersToggle();
   initLightbox();
+
+  // ✅ افتح "كلاسيك" تلقائيًا (لأنك لغيت all)
+  openDefaultFilter("classic");
 }
 
 buildGallery();
@@ -122,10 +125,28 @@ function initFiltersToggle() {
 
       galleryItems.forEach(item => {
         const cat = item.dataset.cat;
-        if (filter === "all" || cat === filter) item.classList.remove("hidden");
+        if (cat === filter) item.classList.remove("hidden");
         else item.classList.add("hidden");
       });
     });
+  });
+}
+
+// ✅ فتح تصنيف افتراضي عند تحميل الصفحة
+function openDefaultFilter(filterName) {
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const galleryItems = document.querySelectorAll(".g-item");
+
+  const defaultBtn = Array.from(filterBtns).find(b => b.dataset.filter === filterName);
+  if (!defaultBtn) return;
+
+  filterBtns.forEach(b => b.classList.remove("active"));
+  defaultBtn.classList.add("active");
+
+  galleryItems.forEach(item => {
+    const cat = item.dataset.cat;
+    if (cat === filterName) item.classList.remove("hidden");
+    else item.classList.add("hidden");
   });
 }
 
