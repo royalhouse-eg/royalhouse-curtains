@@ -321,5 +321,19 @@ window.addEventListener("scroll", () => {
   }
 });
 
+// ===== Header shrink on scroll (reliable) =====
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".header");
+  if (!header) return;
+
+  const toggleShrink = () => {
+    if (window.scrollY > 60) header.classList.add("shrink");
+    else header.classList.remove("shrink");
+  };
+
+  toggleShrink(); // لو الصفحة اتفتحت وهي نازلة
+  window.addEventListener("scroll", toggleShrink, { passive: true });
+});
+
 
 
