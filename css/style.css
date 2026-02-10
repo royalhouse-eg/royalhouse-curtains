@@ -742,4 +742,44 @@ h2{
 .directions{
   font-weight:600;
 }
+/* ===== Gallery Head (Premium spacing) ===== */
+.section-head{
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap:8px;
+  margin-bottom:26px;   /* مسافة أحلى قبل التصنيفات */
+}
+
+/* العنوان الرئيسي */
+.section-head h2{
+  font-size:28px;
+  font-weight:600;
+  letter-spacing:.2px;
+  margin:0;
+}
+
+/* النص الصغير */
+.section-head .muted{
+  font-size:14px;
+  font-weight:400;
+  color:#777;
+  margin:0;
+}
+
+/* موبايل */
+@media (max-width: 980px){
+  .section-head{
+    margin-bottom:22px;
+  }
+
+  .section-head h2{
+    font-size:26px;
+  }
+
+  .section-head .muted{
+    font-size:13px;
+  }
+}
+
 
