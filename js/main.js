@@ -308,32 +308,27 @@ if (menuToggle && navMenu) {
     }
   });
 }
-// ===== Header shrink on scroll =====
-const header = document.querySelector(".header");
 
-window.addEventListener("scroll", () => {
-  if (!header) return;
-
-  if (window.scrollY > 60) {
-    header.classList.add("shrink");
-  } else {
-    header.classList.remove("shrink");
-  }
-});
-
-// ===== Header shrink on scroll (reliable) =====
+// ===== Header shrink on scroll (FINAL - واحد بس) =====
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".header");
   if (!header) return;
 
   const toggleShrink = () => {
-    if (window.scrollY > 60) header.classList.add("shrink");
-    else header.classList.remove("shrink");
+    const y =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+
+    if (y > 60) {
+      header.classList.add("shrink");
+    } else {
+      header.classList.remove("shrink");
+    }
   };
 
   toggleShrink(); // لو الصفحة اتفتحت وهي نازلة
   window.addEventListener("scroll", toggleShrink, { passive: true });
 });
-
-
 
