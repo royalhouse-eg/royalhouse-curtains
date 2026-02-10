@@ -89,8 +89,6 @@ function buildGallery() {
   initFiltersToggle();
   initLightbox();
 
-  // ✅ افتح "كلاسيك" تلقائيًا (لأنك لغيت all)
-  openDefaultFilter("classic");
 }
 
 buildGallery();
