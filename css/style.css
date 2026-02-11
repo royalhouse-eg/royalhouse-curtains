@@ -254,14 +254,12 @@ h2{
 
   color:#111;
 }
-
 .filter-btn.filter-card .cat-title{
-  font-size:23px;
+  font-size:24px;
   font-weight:600;
-  letter-spacing:.2px;
+  letter-spacing:0;
   color:#111;
 }
-
 
 @media (max-width:768px){
   .filter-btn.filter-card .cat-title{
@@ -670,6 +668,7 @@ h2{
   .modal-preview{ border-left:none; border-bottom:1px solid #eee; }
   .modal-preview img{ height:320px; }
 }
+
 
 
 
