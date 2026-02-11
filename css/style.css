@@ -257,7 +257,7 @@ h2{
 
 .filter-btn.filter-card .cat-title{
   font-size:20px;
-  font-weight:700;
+  font-weight:600;
   letter-spacing:0;
   color:#111;
 }
@@ -669,6 +669,7 @@ h2{
   .modal-preview{ border-left:none; border-bottom:1px solid #eee; }
   .modal-preview img{ height:320px; }
 }
+
 
 
 
