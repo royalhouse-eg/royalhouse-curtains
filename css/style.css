@@ -269,7 +269,7 @@ h2{
   }
   .filter-btn.filter-card .cat-title{
     font-size:20px;        /* حجم مناسب للموبايل */
-    font-weight:500;       /* مش تقيل */
+    font-weight:400;       /* مش تقيل */
   }
 }
 
@@ -669,6 +669,7 @@ h2{
   .modal-preview{ border-left:none; border-bottom:1px solid #eee; }
   .modal-preview img{ height:320px; }
 }
+
 
 
 
