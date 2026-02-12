@@ -40,11 +40,11 @@ if (orderForm) {
 const galleryGrid = document.getElementById("galleryGrid");
 
 const GALLERY_COUNTS = {
-  classic: 50,
-  modern: 50,
-  accessories: 20,
-  blackout: 20,
-  roller: 20
+  classic: 30,
+  modern: 25,
+  accessories: 12,
+  blackout: 1,
+  roller: 6
 };
 
 function buildGallery() {
@@ -260,3 +260,4 @@ document.addEventListener("DOMContentLoaded", () => {
   onScroll();
   window.addEventListener("scroll", onScroll, { passive:true });
 });
+
