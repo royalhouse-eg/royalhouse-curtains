@@ -237,7 +237,7 @@ h2{
 .filter-btn.filter-card{
   width:100%;
   border:none;
-  background:#f5f5f5;
+  background:#f6f6f6;
   border-radius:22px;
   padding:22px 20px;
   cursor:pointer;
@@ -260,7 +260,13 @@ h2{
   letter-spacing:0;
   color:#111;
 }
-
+/* تصغير خط التصنيفات على الموبايل فقط */
+@media (max-width: 768px){
+  .filter-btn.filter-card .cat-title{
+    font-size: 20px;   /* جرّب 20.. لو عايزه أصغر خليها 18 */
+    font-weight: 600;
+    letter-spacing: 0;
+  }
 @media (max-width:768px){
   .filter-btn.filter-card .cat-title{
     font-size:26px; /* نفس الحجم في الموبايل */
@@ -669,6 +675,7 @@ h2{
   .modal-preview{ border-left:none; border-bottom:1px solid #eee; }
   .modal-preview img{ height:320px; }
 }
+
 
 
 
