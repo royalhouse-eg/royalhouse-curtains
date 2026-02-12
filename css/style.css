@@ -229,7 +229,7 @@ h2{
 ========================================================= */
 .filters.filter-grid{
   display:grid;
-  grid-template-columns:1fr;      /* كارت بعرض الصفحة */
+  grid-template-columns:1fr;
   gap:16px;
   margin:18px 0 24px;
 }
@@ -249,31 +249,29 @@ h2{
 
   box-shadow:0 10px 28px rgba(0,0,0,0.08);
   transition:.2s ease;
-
   -webkit-tap-highlight-color: transparent;
 
   color:#111;
 }
+
 .filter-btn.filter-card .cat-title{
   font-size:26px;
   font-weight:600;
   letter-spacing:0;
   color:#111;
 }
-/* تصغير خط التصنيفات على الموبايل فقط */
+
+/* ✅ موبايل فقط */
 @media (max-width: 768px){
-  .filter-btn.filter-card .cat-title{
-    font-size: 20px;   /* جرّب 20.. لو عايزه أصغر خليها 18 */
-    font-weight: 600;
-    letter-spacing: 0;
+  .filter-btn.filter-card{
+    padding:16px 16px;     /* يقلل حجم الكارت */
+    border-radius:18px;
   }
-@media (max-width:768px){
   .filter-btn.filter-card .cat-title{
-    font-size:26px; /* نفس الحجم في الموبايل */
+    font-size:20px;        /* حجم مناسب للموبايل */
+    font-weight:600;       /* مش تقيل */
   }
 }
-
-
 
 .filter-btn.filter-card:active{
   transform:scale(0.98);
@@ -289,13 +287,8 @@ h2{
 /* منع الـ focus يغير لون كروت التصنيفات */
 .filter-btn.filter-card:focus,
 .filter-btn.filter-card:focus-visible{
-  outline: none;
-  background: #f5f5f5;
-}
-
-.filter-btn.filter-card:focus .cat-title,
-.filter-btn.filter-card:focus-visible .cat-title{
-  color:#111;
+  outline:none;
+  background:#f6f6f6;
 }
 
 /* Tablet */
@@ -311,6 +304,7 @@ h2{
     grid-template-columns:repeat(3, 1fr);
   }
 }
+
 
 /* =========================================================
    GALLERY GRID
@@ -675,6 +669,7 @@ h2{
   .modal-preview{ border-left:none; border-bottom:1px solid #eee; }
   .modal-preview img{ height:320px; }
 }
+
 
 
 
