@@ -4,6 +4,19 @@
 const WHATSAPP_NUMBER = "201061533348";
 
 // =====================================================
+// HELPERS
+// =====================================================
+function catToArabic(cat) {
+  return {
+    classic: "كلاسيك",
+    modern: "مودرن",
+    accessories: "اكسسوارات",
+    blackout: "بلاك اوت / كتان",
+    roller: "رول / بلاك / زبرا",
+  }[cat] || cat;
+}
+
+// =====================================================
 // ORDER FORM (General)
 // =====================================================
 const orderForm = document.getElementById("orderForm");
@@ -12,15 +25,14 @@ if (orderForm) {
   orderForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const name   = document.getElementById("custName").value.trim();
-    const phone  = document.getElementById("custPhone").value.trim();
-    const width  = document.getElementById("width").value.trim();
+    const name = document.getElementById("custName").value.trim();
+    const phone = document.getElementById("custPhone").value.trim();
+    const width = document.getElementById("width").value.trim();
     const height = document.getElementById("height").value.trim();
-    const type   = document.getElementById("type").value.trim();
-    const notes  = document.getElementById("notes").value.trim();
+    const type = document.getElementById("type").value.trim();
+    const notes = document.getElementById("notes").value.trim();
 
-    const msg =
-`طلب جديد - ROYAL HOUSE
+    const msg = `طلب جديد - ROYAL HOUSE
 التصنيف: ${catToArabic(type)}
 
 الاسم: ${name}
@@ -35,7 +47,7 @@ if (orderForm) {
 }
 
 // =====================================================
-// GALLERY BUILD (Auto Images)
+// GALLERY (Build only selected category) ✅
 // =====================================================
 const galleryGrid = document.getElementById("galleryGrid");
 
@@ -44,97 +56,91 @@ const GALLERY_COUNTS = {
   modern: 50,
   accessories: 20,
   blackout: 20,
-  roller: 20
+  roller: 20,
 };
 
-function buildGallery() {
+let activeFilter = null;
+
+function buildGalleryFor(filter) {
   if (!galleryGrid) return;
 
-  galleryGrid.innerHTML = "";
+  galleryGrid.innerHTML = ""; // امسح القديم (يخفف جدًا)
 
-  const order = ["classic", "modern", "accessories", "blackout", "roller"];
+  const count = GALLERY_COUNTS[filter];
+  if (!count) return;
 
-  order.forEach(cat => {
-    const count = GALLERY_COUNTS[cat];
+  for (let i = 1; i <= count; i++) {
+    const fig = document.createElement("figure");
+    fig.className = "g-item";
+    fig.dataset.cat = filter;
 
-    for (let i = 1; i <= count; i++) {
-      const fig = document.createElement("figure");
-      fig.className = "g-item hidden";
-      fig.dataset.cat = cat;
+    const img = document.createElement("img");
+    img.src = `images/${filter}/${i}.jpg`;
+    img.alt = filter;
+    img.loading = "lazy";
+    img.onerror = () => fig.remove();
 
-      const img = document.createElement("img");
-      img.src = `images/${cat}/${i}.jpg`;
-      img.alt = cat;
-      img.loading = "lazy";
-      img.onerror = () => fig.remove();
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "order-btn";
+    btn.innerHTML = `<i class="fa-solid fa-bag-shopping"></i> اطلب`;
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openOrderModal(filter, img.src);
+    });
 
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "order-btn";
-      btn.innerHTML = `<i class="fa-solid fa-bag-shopping"></i> اطلب`;
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        openOrderModal(cat, img.src);
-      });
-
-      fig.appendChild(img);
-      fig.appendChild(btn);
-      galleryGrid.appendChild(fig);
-    }
-  });
-
-  initFilters();
-  initLightbox();
-
-  // تأكيد مفيش زر واخد focus
-  document.querySelectorAll(".filter-btn").forEach(b => b.blur());
+    fig.appendChild(img);
+    fig.appendChild(btn);
+    galleryGrid.appendChild(fig);
+  }
 }
-
-buildGallery();
 
 // =====================================================
 // FILTERS (Toggle open / close)
 // =====================================================
 function initFilters() {
   const filterBtns = document.querySelectorAll(".filter-btn");
-  const items = document.querySelectorAll(".g-item");
+  if (!filterBtns.length) return;
 
-  let activeFilter = null;
+  // مهم: أول ما الصفحة تفتح مفيش active نهائي
+  filterBtns.forEach((b) => b.classList.remove("active"));
 
-  filterBtns.forEach(btn => {
+  filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const filter = btn.dataset.filter;
 
       // اقفل لو نفس التصنيف
       if (activeFilter === filter) {
         activeFilter = null;
-        filterBtns.forEach(b => b.classList.remove("active"));
-        items.forEach(i => i.classList.add("hidden"));
+        filterBtns.forEach((b) => b.classList.remove("active"));
+        if (galleryGrid) galleryGrid.innerHTML = ""; // امسح الصور بدل اخفائها
         btn.blur();
         return;
       }
 
       // افتح تصنيف جديد
       activeFilter = filter;
-      filterBtns.forEach(b => b.classList.remove("active"));
+      filterBtns.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
 
-      items.forEach(item => {
-        item.classList.toggle(
-          "hidden",
-          item.dataset.cat !== filter
-        );
-      });
+      buildGalleryFor(filter);
 
       btn.blur();
     });
   });
 }
 
+initFilters();
+
 // =====================================================
-// LIGHTBOX
+// LIGHTBOX (init once) ✅
 // =====================================================
+let lightboxInited = false;
+
 function initLightbox() {
+  if (lightboxInited) return; // يمنع تكرار listeners
+  lightboxInited = true;
+
   const lightbox = document.getElementById("lightbox");
   const lbImg = document.getElementById("lbImg");
   const lbClose = document.getElementById("lbClose");
@@ -145,42 +151,57 @@ function initLightbox() {
   let index = 0;
 
   const refresh = () => {
-    visible = [...document.querySelectorAll(".g-item:not(.hidden) img")];
+    visible = [...document.querySelectorAll(".g-item img")]; // الموجود حاليًا بس
   };
 
   const open = (i) => {
     refresh();
     if (!visible.length) return;
-    index = i;
+    index = Math.max(0, Math.min(i, visible.length - 1));
     lbImg.src = visible[index].src;
     lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
   };
 
   const close = () => {
     lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
     lbImg.src = "";
   };
 
-  document.addEventListener("click", e => {
+  document.addEventListener("click", (e) => {
     const img = e.target.closest(".g-item img");
     if (!img) return;
     refresh();
-    open(visible.findIndex(v => v.src === img.src));
+    open(visible.findIndex((v) => v.src === img.src));
   });
 
   lbClose?.addEventListener("click", close);
-  lightbox?.addEventListener("click", e => e.target === lightbox && close());
+  lightbox?.addEventListener("click", (e) => e.target === lightbox && close());
 
   lbNext?.addEventListener("click", () => {
+    refresh();
+    if (!visible.length) return;
     index = (index + 1) % visible.length;
     lbImg.src = visible[index].src;
   });
 
   lbPrev?.addEventListener("click", () => {
+    refresh();
+    if (!visible.length) return;
     index = (index - 1 + visible.length) % visible.length;
     lbImg.src = visible[index].src;
   });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox?.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") lbNext?.click();
+    if (e.key === "ArrowRight") lbPrev?.click();
+  });
 }
+
+initLightbox();
 
 // =====================================================
 // ORDER MODAL
@@ -194,43 +215,49 @@ const orderModalForm = document.getElementById("orderModalForm");
 let selectedImg = "";
 let selectedCat = "";
 
-function catToArabic(cat){
-  return {
-    classic:"كلاسيك",
-    modern:"مودرن",
-    accessories:"اكسسوارات",
-    blackout:"بلاك اوت / كتان",
-    roller:"رول / بلاك / زبرا"
-  }[cat] || cat;
-}
-
-function openOrderModal(cat, img){
+function openOrderModal(cat, img) {
   selectedCat = cat;
   selectedImg = img;
 
-  orderImg.src = img;
-  orderImgLabel.textContent = `التصنيف: ${catToArabic(cat)}`;
-  document.getElementById("mType").value = cat;
+  if (orderImg) orderImg.src = img;
+  if (orderImgLabel) orderImgLabel.textContent = `التصنيف: ${catToArabic(cat)}`;
 
-  orderModal.classList.add("open");
+  const mType = document.getElementById("mType");
+  if (mType) mType.value = cat;
+
+  orderModal?.classList.add("open");
+  orderModal?.setAttribute("aria-hidden", "false");
 }
 
-orderClose?.addEventListener("click", () => orderModal.classList.remove("open"));
-orderModal?.addEventListener("click", e => e.target === orderModal && orderModal.classList.remove("open"));
+function closeOrderModal() {
+  orderModal?.classList.remove("open");
+  orderModal?.setAttribute("aria-hidden", "true");
+}
 
-orderModalForm?.addEventListener("submit", e => {
+orderClose?.addEventListener("click", closeOrderModal);
+orderModal?.addEventListener("click", (e) => e.target === orderModal && closeOrderModal());
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && orderModal?.classList.contains("open")) closeOrderModal();
+});
+
+orderModalForm?.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const msg =
-`طلب من المعرض - ROYAL HOUSE
+  const mName = document.getElementById("mName").value.trim();
+  const mPhone = document.getElementById("mPhone").value.trim();
+  const mWidth = document.getElementById("mWidth").value.trim();
+  const mHeight = document.getElementById("mHeight").value.trim();
+  const mNotes = document.getElementById("mNotes").value.trim();
+
+  const msg = `طلب من المعرض - ROYAL HOUSE
 التصنيف: ${catToArabic(selectedCat)}
 الصورة: ${selectedImg}
 
-الاسم: ${mName.value}
-الموبايل: ${mPhone.value}
-العرض: ${mWidth.value} سم
-الارتفاع: ${mHeight.value} سم
-ملاحظات: ${mNotes.value || "—"}`;
+الاسم: ${mName}
+الموبايل: ${mPhone}
+العرض: ${mWidth} سم
+الارتفاع: ${mHeight} سم
+ملاحظات: ${mNotes || "—"}`;
 
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
 });
@@ -241,8 +268,8 @@ orderModalForm?.addEventListener("submit", e => {
 const menuToggle = document.querySelector(".menu-toggle");
 const navMenu = document.querySelector(".nav");
 
-menuToggle?.addEventListener("click", () => navMenu.classList.toggle("open"));
-navMenu?.querySelectorAll("a").forEach(a =>
+menuToggle?.addEventListener("click", () => navMenu?.classList.toggle("open"));
+navMenu?.querySelectorAll("a").forEach((a) =>
   a.addEventListener("click", () => navMenu.classList.remove("open"))
 );
 
@@ -258,5 +285,5 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   onScroll();
-  window.addEventListener("scroll", onScroll, { passive:true });
+  window.addEventListener("scroll", onScroll, { passive: true });
 });
