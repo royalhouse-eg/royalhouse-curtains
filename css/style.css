@@ -16,9 +16,17 @@ body{
   background:var(--bg);
   color:var(--text);
 }
+html, body{
+  width:100%;
+  overflow-x:hidden;
+}
 
+img, iframe{
+  max-width:100%;
+}
 .container{
-  width:min(var(--max), calc(100% - 32px));
+  width: min(var(--max), 100%);
+  padding-inline:16px;
   margin-inline:auto;
 }
 
@@ -374,49 +382,67 @@ h2{
   .g-item img{ height:260px; }
 }
 
-/* =========================================================
-   ORDER FORM
-========================================================= */
-.order h2{ text-align:center; margin-bottom:18px; }
-
+/* ===== Order (Android Safe) ===== */
 #orderForm{
-  width:min(720px, calc(100% - 32px));
+  width:100%;
+  max-width:720px;
   margin-inline:auto;
   display:grid;
   gap:12px;
 }
 
+#orderForm *{
+  box-sizing:border-box;
+}
+
+#orderForm input,
+#orderForm select,
+#orderForm textarea,
+#orderForm button{
+  width:100%;
+  max-width:100%;
+}
+
 #orderForm input,
 #orderForm select,
 #orderForm textarea{
-  padding:12px 12px;
+  padding:14px;
   border:1px solid var(--line);
-  border-radius:12px;
+  border-radius:14px;
   font-family:inherit;
-  font-size:15px;
+  font-size:16px;      /* يمنع zoom ويثبت المقاسات على أندرويد */
+  line-height:1.2;
   outline:none;
+  background:#fff;
 }
 
 #orderForm textarea{
-  min-height:110px;
-  resize:vertical;
+  min-height:120px;
 }
 
 #orderForm button{
-  padding:12px 14px;
+  padding:14px 16px;
   border:1px solid var(--btn);
   background:var(--btn);
   color:var(--btnText);
   border-radius:999px;
   cursor:pointer;
   font-family:inherit;
-  font-size:15px;
-}
-#orderForm button:hover{
-  background:transparent;
-  color:var(--text);
+  font-size:16px;
 }
 
+/* لو عندك حقول العرض والارتفاع جنب بعض */
+#orderForm .two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+@media (max-width:480px){
+  #orderForm .two{
+    grid-template-columns:1fr; /* لو الشاشة صغيرة قوي، خليهم تحت بعض */
+  }
+}
 /* =========================================================
    CONTACT
 ========================================================= */
@@ -670,6 +696,12 @@ h2{
   .modal-preview img{ height:320px; }
 }
 
+/* ===== Fix Android Form Width ===== */
+#orderForm input,
+#orderForm select,
+#orderForm textarea{
+  width:100%;
+}
 
 
 
