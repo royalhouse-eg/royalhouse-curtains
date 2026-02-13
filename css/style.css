@@ -533,9 +533,8 @@ h2{
 }
 .lb-prev{right:14px}
 .lb-next{left:14px}
-
 /* =========================================================
-   MODAL (Order from image) - Android SAFE
+   MODAL (Order from image) - ANDROID FIX
 ========================================================= */
 .modal{
   position:fixed;
@@ -545,61 +544,58 @@ h2{
   z-index:1000;
   padding:16px;
 
-  overflow:auto;                 /* ✅ مهم لأندرويد */
-  -webkit-overflow-scrolling:touch;
+  /* مهم لأندرويد */
+  height:100dvh;
 }
-
 .modal.open{
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-/* كرت المودال */
+/* الكارت */
 .modal-card{
   width:min(980px, 96vw);
   background:#fff;
   border-radius:16px;
   border:1px solid rgba(0,0,0,.08);
   position:relative;
-
-  max-height:calc(100vh - 24px);  /* ✅ يمنع الخروج برا الشاشة */
   overflow:hidden;
+
+  /* مهم: خلي الكارت مايزيدش عن ارتفاع الشاشة الحقيقي */
+  max-height: calc(var(--vvh, 100dvh) - 32px);
+  display:flex;
+  flex-direction:column;
 }
 
 /* زر الإغلاق */
 .modal-close{
   position:absolute;
-  top:10px;
-  right:10px;
-  width:40px;
-  height:40px;
+  top:10px; right:10px;
+  width:40px; height:40px;
   border-radius:999px;
   border:1px solid rgba(0,0,0,.12);
   background:#fff;
   cursor:pointer;
   display:grid;
   place-items:center;
-  z-index:10;
+  z-index:5;
 }
 
-/* شبكة المودال */
+/* تقسيم المحتوى */
 .modal-grid{
   display:grid;
   grid-template-columns: 1fr 1fr;
   gap:0;
-
-  max-height:calc(100vh - 24px);  /* ✅ */
-  overflow:auto;                  /* ✅ */
-  -webkit-overflow-scrolling:touch;
+  height:100%;
 }
 
+/* جزء الصورة */
 .modal-preview{
   padding:14px;
   border-left:1px solid #eee;
   background:#fafafa;
 }
-
 .modal-preview img{
   width:100%;
   height:420px;
@@ -609,13 +605,19 @@ h2{
   display:block;
 }
 
-/* الفورم */
+/* جزء الفورم */
 .modal-form{
   padding:18px;
-  display:grid;
+  display:flex;
+  flex-direction:column;
   gap:10px;
 
-  padding-bottom:calc(18px + env(safe-area-inset-bottom));
+  /* مهم: خلي الفورم يعمل سكرول بدل ما يزق الزر لبرا */
+  overflow:auto;
+  -webkit-overflow-scrolling: touch;
+
+  /* مساحة تحت للزر sticky + safe area */
+  padding-bottom: calc(16px + env(safe-area-inset-bottom) + 70px);
 }
 
 .modal-form h3{ margin:0 0 6px; }
@@ -629,9 +631,9 @@ h2{
   border:1px solid #e7e7e7;
   border-radius:12px;
   font-family:inherit;
-  font-size:16px;     /* ✅ مهم لأندرويد */
-  line-height:1.2;
-  box-sizing:border-box;
+
+  /* 16px تمنع Zoom وتقلل مشاكل أندرويد */
+  font-size:16px;
 }
 
 .modal-form textarea{
@@ -645,10 +647,13 @@ h2{
   gap:10px;
 }
 
-/* زر الإرسال */
-.btn-block{
-  width:100%;
-  padding:14px 16px;
+/* زر الإرسال يبقى ظاهر دايمًا */
+.modal-form .btn-block{
+  position: sticky;
+  bottom: 10px;
+  z-index: 2;
+
+  padding:12px 14px;
   border:1px solid #111;
   background:#111;
   color:#fff;
@@ -657,105 +662,15 @@ h2{
   font-family:inherit;
   font-size:16px;
 
-  position:sticky;   /* ✅ يخليه ظاهر */
-  bottom:0;
+  /* شكل أحلى مع sticky */
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
 }
 
-/* =========================================================
-   MODAL MOBILE
-========================================================= */
-@media (max-width: 900px){
-  .modal{ padding:10px; }
-
-  .modal.open{
-    align-items:flex-start;      /* ✅ أندرويد */
-  }
-
-  .modal-card{
-    width:100%;
-    max-height:calc(100vh - 20px);
-  }
-
-  .modal-grid{
-    grid-template-columns: 1fr;
-    max-height:calc(100vh - 20px);
-  }
-
-  .modal-preview{
-    border-left:none;
-    border-bottom:1px solid #eee;
-  }
-
-  .modal-preview img{ height:240px; }
-}
-
-@media (max-width: 480px){
-  .two{ grid-template-columns:1fr; }
-}
-
-/* =========================================================
-   RESPONSIVE NAV (Mobile menu)
-========================================================= */
-@media (max-width: 980px){
-
-  .header .container{
-    direction:ltr;
-    justify-content:space-between;
-  }
-
-  .header .logo{ order:1; }
-
-  .social-icons{
-    order:2;
-    flex:1;
-    justify-content:center;
-    margin-inline-start:0;
-  }
-
-  .menu-toggle{
-    display:block;
-    order:3;
-  }
-
-  .nav{
-    display:none;
-    direction:rtl;
-  }
-
-  .nav.open{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-
-    position:absolute;
-    top:100%;
-    left:0;
-    right:0;
-
-    background:#fff;
-    padding:16px;
-
-    border-top:1px solid var(--line);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    z-index:999;
-  }
-
-  .nav.open a{
-    font-size:16px;
-    padding:10px 0;
-    border-bottom:1px solid #f0f0f0;
-  }
-
-  .nav.open a:last-child{ border-bottom:none; }
-}
-
-/* =========================================================
-   MODAL MOBILE
-========================================================= */
+/* موبايل */
 @media (max-width: 900px){
   .modal-grid{ grid-template-columns: 1fr; }
   .modal-preview{ border-left:none; border-bottom:1px solid #eee; }
-  .modal-preview img{ height:320px; }
+  .modal-preview img{ height:240px; }
 }
 
 /* ===== Fix Android Form Width ===== */
@@ -764,6 +679,7 @@ h2{
 #orderForm textarea{
   width:100%;
 }
+
 
 
 
