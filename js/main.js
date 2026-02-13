@@ -261,3 +261,15 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", onScroll, { passive:true });
 });
 
+// ===== Android Keyboard / VisualViewport fix for modal height =====
+(function () {
+  const setVVH = () => {
+    const vv = window.visualViewport;
+    const h = vv ? vv.height : window.innerHeight;
+    document.documentElement.style.setProperty("--vvh", h + "px");
+  };
+
+  setVVH();
+  window.addEventListener("resize", setVVH);
+  window.visualViewport?.addEventListener("resize", setVVH);
+})();
