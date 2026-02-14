@@ -680,6 +680,51 @@ h2{
   width:100%;
 }
 
+/* ===== MOBILE HEADER FIX (put at END of style.css) ===== */
+@media (max-width: 1024px){
+
+  .header .container{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:10px !important;
+    flex-wrap:nowrap !important;
+  }
+
+  /* اخفي روابط المنيو في الموبايل */
+  .nav{
+    display:none !important;
+  }
+
+  /* خلي زر المنيو يظهر */
+  .menu-toggle{
+    display:block !important;
+    font-size:28px !important;
+    line-height:1 !important;
+    cursor:pointer !important;
+  }
+
+  /* اللوجو مايصغرش/يتكسر */
+  .header .logo{
+    flex:0 0 auto !important;
+    max-width:72px !important;
+  }
+
+  /* السوشيال ما تكبرش وتكسر الهيدر */
+  .social-icons{
+    flex:1 !important;
+    display:flex !important;
+    justify-content:center !important;
+    gap:10px !important;
+    margin:0 !important;
+    min-width:0 !important;
+  }
+
+  .social-icons a{
+    width:34px !important;
+    height:34px !important;
+  }
+}
 
 
 
