@@ -25,12 +25,6 @@ function catToArabic(cat){
   })[cat] || cat;
 }
 
-// ================= HEADER SHRINK =================
-document.addEventListener("scroll", () => {
-  const header = qs(".header");
-  if (!header) return;
-  header.classList.toggle("shrink", window.scrollY > 60);
-}, { passive:true });
 
 // ================= MOBILE MENU =================
 const menuToggle = qs(".menu-toggle");
@@ -284,3 +278,4 @@ document.addEventListener("DOMContentLoaded",()=>{
   initFilters();    // ✅ الفلاتر
   initLightbox();   // ✅ لايت بوكس
 });
+
