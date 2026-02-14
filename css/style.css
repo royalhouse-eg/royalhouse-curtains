@@ -1,204 +1,3 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ROYAL HOUSE | Curtains Gallery</title>
-
-  <link rel="stylesheet" href="css/style.css" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-</head>
-
-<body>
-
-<header class="header">
-  <div class="container">
-    <img src="images/logo.png" alt="Royal House Logo" class="logo">
-
-    <div class="menu-toggle" aria-label="Menu">☰</div>
-
-    <nav class="nav">
-      <a href="#home">الرئيسية</a>
-      <a href="#gallery">المعرض</a>
-      <a href="#order">اطلب الآن</a>
-      <a href="#contact">تواصل</a>
-    </nav>
-
-    <div class="social-icons">
-      <a href="https://www.facebook.com/share/1EacKgLkxf/?mibextid=wwXIfr" target="_blank" rel="noopener">
-        <i class="fa-brands fa-facebook-f"></i>
-      </a>
-      <a href="https://www.instagram.com/royal.house_eg" target="_blank" rel="noopener">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://www.tiktok.com/@royal.house_eg" target="_blank" rel="noopener">
-        <i class="fa-brands fa-tiktok"></i>
-      </a>
-    </div>
-  </div>
-</header>
-
-<section id="home" class="hero">
-  <div class="hero-content">
-    <h1>ROYAL HOUSE</h1>
-    <p>Curtains gallery | ستاير مودرن وكلاسيك وخامات مستوردة</p>
-    <a href="#gallery" class="btn">شوف التصميمات</a>
-  </div>
-</section>
-
-<!-- ================= GALLERY ================= -->
-<section id="gallery" class="gallery">
-  <div class="container">
-
-    <div class="section-head">
-      <h2>معرض الصور</h2>
-      <p class="muted">اختار التصنيف لعرض التصميمات</p>
-    </div>
-
-    <div class="filters filter-grid" role="tablist" aria-label="تصنيفات المعرض">
-      <button class="filter-btn filter-card" data-filter="classic" type="button">
-        <span class="cat-title">كلاسيك</span>
-      </button>
-      <button class="filter-btn filter-card" data-filter="modern" type="button">
-        <span class="cat-title">مودرن</span>
-      </button>
-      <button class="filter-btn filter-card" data-filter="accessories" type="button">
-        <span class="cat-title">اكسسوارات</span>
-      </button>
-      <button class="filter-btn filter-card" data-filter="blackout" type="button">
-        <span class="cat-title">بلاك اوت / كتان</span>
-      </button>
-      <button class="filter-btn filter-card" data-filter="roller" type="button">
-        <span class="cat-title">رول / بلاك / زبرا</span>
-      </button>
-    </div>
-
-    <!-- ✅ واحد بس -->
-    <div class="gallery-grid" id="galleryGrid"></div>
-
-  </div>
-</section>
-
-<!-- ===== Lightbox ===== -->
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <button class="lb-close" id="lbClose" aria-label="Close">
-    <i class="fa-solid fa-xmark"></i>
-  </button>
-
-  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">
-    <i class="fa-solid fa-angle-right"></i>
-  </button>
-
-  <img id="lbImg" alt="Gallery image preview" />
-
-  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">
-    <i class="fa-solid fa-angle-left"></i>
-  </button>
-</div>
-
-<!-- ===== Order (general form) ===== -->
-<section id="order" class="order">
-  <h2>اطلب ستارتك</h2>
-  <form id="orderForm">
-    <input id="custName" type="text" placeholder="الاسم" required>
-    <input id="custPhone" type="tel" placeholder="رقم الموبايل" required>
-
-    <div class="two">
-      <input id="width" type="number" placeholder="العرض (سم)" required>
-      <input id="height" type="number" placeholder="الارتفاع (سم)" required>
-    </div>
-
-    <select id="type">
-      <option value="classic">كلاسيك</option>
-      <option value="modern">مودرن</option>
-      <option value="accessories">اكسسوارات</option>
-      <option value="blackout">بلاك اوت / كتان</option>
-      <option value="roller">رول / بلاك / زبرا</option>
-    </select>
-
-    <textarea id="notes" placeholder="ملاحظات (اختياري)"></textarea>
-    <button type="submit">إرسال على واتساب</button>
-  </form>
-</section>
-
-<!-- ===== Contact ===== -->
-<section id="contact" class="contact">
-  <div class="container">
-    <p class="contact-line">
-      <i class="fa-solid fa-phone"></i>
-      <a class="link" href="tel:+201061533348">+20 106 153 3348</a>
-      &nbsp;|&nbsp;
-      <a class="link" href="https://wa.me/201061533348" target="_blank" rel="noopener">WhatsApp</a>
-    </p>
-
-    <p class="contact-line">
-      <i class="fa-solid fa-location-dot"></i>
-      مركز الحي الثاني نهاية شارع م حسب الله الكفراوي (الصعيدي القديم) بجوار راحه
-      &nbsp;—&nbsp;
-      <a class="link directions" href="https://maps.app.goo.gl/iwMqokJNvCek7o1fA?g_st=ic" target="_blank" rel="noopener">Get Directions</a>
-    </p>
-
-    <div class="map-wrap">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2498.020976282606!2d31.686909039237772!3d31.447519012366037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f9e318855490e3%3A0xa93b01bd93d8ebe6!2z2LHZiNmK2KfZhCDZh9in2YjYsyDYrNin2YTZitix2Yog2LPYqtin2KbYsSBSb3lhbCBIb3VzZSBDdXJ0YWlucyBEZXNpZ24!5e0!3m2!1sar!2seg!4v1770736168249!5m2!1sar!2seg"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Royal House Location"
-      ></iframe>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <p>© ROYAL HOUSE – Curtains gallery</p>
-</footer>
-
-<!-- ===== Order Modal (from Gallery image) ===== -->
-<div class="modal" id="orderModal" aria-hidden="true">
-  <div class="modal-card" role="dialog" aria-modal="true" aria-label="طلب تصميم">
-
-    <button class="modal-close" id="orderClose" aria-label="إغلاق">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-
-    <div class="modal-grid">
-      <div class="modal-preview">
-        <img id="orderImg" alt="Preview" />
-        <p class="muted" id="orderImgLabel"></p>
-      </div>
-
-      <form id="orderModalForm" class="modal-form">
-        <h3>طلب تصميم</h3>
-
-        <input id="mName" type="text" placeholder="الاسم" required />
-        <input id="mPhone" type="tel" placeholder="رقم الموبايل" required />
-
-        <div class="two">
-          <input id="mWidth" type="number" placeholder="العرض (سم)" required />
-          <input id="mHeight" type="number" placeholder="الارتفاع (سم)" required />
-        </div>
-
-        <select id="mType">
-          <option value="classic">كلاسيك</option>
-          <option value="modern">مودرن</option>
-          <option value="accessories">اكسسوارات</option>
-          <option value="blackout">بلاك اوت / كتان</option>
-          <option value="roller">رول / بلاك / زبرا</option>
-        </select>
-
-        <textarea id="mNotes" placeholder="ملاحظات (اختياري)"></textarea>
-
-        <button type="submit" class="btn-block">إرسال على واتساب</button>
-      </form>
-    </div>
-  </div>
-</div>
-
-<script src="js/main.js"></script>
-</body>
-</html>
 :root{
   --bg:#ffffff;
   --text:#111;
@@ -231,14 +30,14 @@ a{color:inherit; text-decoration:none}
 .muted{color:var(--muted); margin:0}
 .hidden{display:none !important}
 
-/* ================= Header (always mobile-like) ================= */
+/* ================= HEADER (Fixed + clean) ================= */
 .header{
   --padY: 12px;
   --logoH: 56px;
 
   position:sticky;
   top:0;
-  z-index:999;
+  z-index:9999;
 
   background:rgba(255,255,255,.92);
   backdrop-filter: blur(8px);
@@ -261,28 +60,27 @@ a{color:inherit; text-decoration:none}
   justify-content:space-between;
   gap:10px;
   padding: var(--padY) 0;
+  direction:ltr; /* يثبت الشمال/اليمين */
 }
 
+/* logo left */
+.header .logo,
 .logo{
   height: var(--logoH);
   width:auto;
   object-fit:contain;
+  flex:0 0 auto;
+  order:1;
 }
 
-.nav{display:none;}
-.menu-toggle{
-  display:block;
-  font-size:28px;
-  cursor:pointer;
-  user-select:none;
-  line-height:1;
-}
-
+/* socials center */
 .social-icons{
   flex:1;
   display:flex;
   justify-content:center;
   gap:10px;
+  order:2;
+  min-width:0;
 }
 .social-icons a{
   display:inline-flex;
@@ -292,9 +90,24 @@ a{color:inherit; text-decoration:none}
   height:34px;
   border:1px solid var(--line);
   border-radius:999px;
+  background:transparent;
+}
+.social-icons i{color:var(--text); font-size:14px}
+
+/* menu right */
+.menu-toggle{
+  display:block;
+  font-size:28px;
+  cursor:pointer;
+  user-select:none;
+  line-height:1;
+  order:3;
 }
 
-/* dropdown menu */
+/* hide links normally */
+.nav{display:none;}
+
+/* dropdown */
 .nav.open{
   display:flex;
   flex-direction:column;
@@ -310,7 +123,8 @@ a{color:inherit; text-decoration:none}
 
   border-top:1px solid var(--line);
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  z-index:999;
+  z-index:9999;
+  direction:rtl;
 }
 .nav.open a{
   font-size:16px;
@@ -319,7 +133,7 @@ a{color:inherit; text-decoration:none}
 }
 .nav.open a:last-child{border-bottom:none}
 
-/* ================= Hero ================= */
+/* ================= HERO ================= */
 .hero{
   min-height:70vh;
   display:flex;
@@ -335,16 +149,8 @@ a{color:inherit; text-decoration:none}
   padding:48px 16px;
   color:#fff;
 }
-.hero h1{
-  margin:0;
-  font-size:44px;
-  letter-spacing:2px;
-}
-.hero p{
-  margin:10px 0 22px;
-  color:rgba(255,255,255,.85);
-  font-size:16px;
-}
+.hero h1{margin:0; font-size:44px; letter-spacing:2px}
+.hero p{margin:10px 0 22px; color:rgba(255,255,255,.85); font-size:16px}
 .btn{
   display:inline-flex;
   align-items:center;
@@ -359,11 +165,11 @@ a{color:inherit; text-decoration:none}
 }
 .btn:hover{background:#fff; color:#111}
 
-/* ================= Sections ================= */
+/* ================= SECTIONS ================= */
 section{padding:54px 0}
 h2{margin:0; font-size:26px; letter-spacing:.2px}
 
-/* ================= Gallery ================= */
+/* ================= GALLERY ================= */
 .gallery{
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
@@ -377,15 +183,8 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
   gap:8px;
   margin-bottom:22px;
 }
-.section-head h2{
-  font-size:26px;
-  font-weight:500;
-}
-.section-head .muted{
-  font-size:13px;
-  font-weight:400;
-  color:#777;
-}
+.section-head h2{font-size:26px; font-weight:500}
+.section-head .muted{font-size:13px; font-weight:400; color:#777}
 
 /* Category cards */
 .filters.filter-grid{
@@ -411,20 +210,21 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
   box-shadow:0 10px 28px rgba(0,0,0,0.08);
   transition:.2s ease;
   -webkit-tap-highlight-color: transparent;
-
   color:#111;
 }
+
 .filter-btn.filter-card .cat-title{
-  font-size:20px;     /* واضح ومش مبالغ */
-  font-weight:500;    /* زي عنوان معرض الصور */
+  font-size:20px;
+  font-weight:500;
   letter-spacing:.2px;
   color:#111;
 }
+
 .filter-btn.filter-card:active{transform:scale(0.98)}
 .filter-btn.filter-card.active{background:#111}
 .filter-btn.filter-card.active .cat-title{color:#fff}
 
-/* امنع الـ focus يغمّق */
+/* امنع الـ focus يغير الشكل */
 .filter-btn.filter-card:focus,
 .filter-btn.filter-card:focus-visible{
   outline:none;
@@ -447,12 +247,14 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
   background:#fafafa;
   position:relative;
 }
+
 .g-item img{
   width:100%;
   height:220px;
   object-fit:cover;
   transition:transform .2s ease;
 }
+
 @media (hover:hover){
   .g-item:hover img{transform:scale(1.04)}
 }
@@ -472,7 +274,7 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
   align-items:center;
 }
 
-/* ================= Order Form (Android safe) ================= */
+/* ================= ORDER FORM (Bottom) ================= */
 .order h2{text-align:center; margin-bottom:18px}
 
 #orderForm{
@@ -481,7 +283,9 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
   margin-inline:auto;
   display:grid;
   gap:12px;
+  direction:rtl;
 }
+
 #orderForm input,
 #orderForm select,
 #orderForm textarea,
@@ -489,6 +293,7 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
   width:100%;
   max-width:100%;
 }
+
 #orderForm input,
 #orderForm select,
 #orderForm textarea{
@@ -496,31 +301,37 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
   border:1px solid var(--line);
   border-radius:14px;
   font-family:inherit;
-  font-size:16px;      /* مهم لأندرويد */
+  font-size:16px; /* مهم لأندرويد */
   line-height:1.2;
   outline:none;
   background:#fff;
+  text-align:right;
 }
+
+#orderForm input::placeholder,
+#orderForm textarea::placeholder{color:#9a9a9a}
+
 #orderForm textarea{min-height:120px; resize:vertical}
 
 #orderForm button{
   padding:14px 16px;
-  border:1px solid var(--btn);
-  background:var(--btn);
-  color:var(--btnText);
+  border:1px solid #111;
+  background:#111; /* غامق */
+  color:#fff;
   border-radius:999px;
   cursor:pointer;
   font-family:inherit;
   font-size:16px;
 }
 
+/* لو عندك div.two للفورم */
 #orderForm .two{
   display:grid;
   grid-template-columns:1fr;
   gap:10px;
 }
 
-/* ================= Contact ================= */
+/* ================= CONTACT ================= */
 .contact{text-align:center}
 .contact-line{margin:10px 0; line-height:1.8}
 .link{border-bottom:1px solid transparent; padding-bottom:2px}
@@ -535,7 +346,7 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
 }
 .contact iframe{width:100%; height:320px; border:0}
 
-/* ================= Footer ================= */
+/* ================= FOOTER ================= */
 .footer{
   border-top:1px solid var(--line);
   padding:18px 0;
@@ -543,7 +354,7 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
   color:var(--muted);
 }
 
-/* ================= Lightbox ================= */
+/* ================= LIGHTBOX ================= */
 .lightbox{
   position:fixed;
   inset:0;
@@ -551,7 +362,7 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:999;
+  z-index:9999;
   padding:18px;
 }
 .lightbox.open{display:flex}
@@ -577,13 +388,13 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
 .lb-prev{right:14px}
 .lb-next{left:14px}
 
-/* ================= Modal (Order from image) — One style for all ================= */
+/* ================= MODAL (Order from image) — Android/iPhone FIX ================= */
 .modal{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.55);
   display:none;
-  z-index:1000;
+  z-index:10000;
 
   padding:14px;
   padding-bottom:calc(14px + env(safe-area-inset-bottom));
@@ -596,7 +407,7 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
 }
 
 .modal-card{
-  width:min(520px, 96vw);       /* نفس شكل الموبايل على اللاب */
+  width:min(520px, 96vw);  /* نفس شكل الموبايل على اللاب */
   background:#fff;
   border-radius:16px;
   border:1px solid rgba(0,0,0,.08);
@@ -606,6 +417,7 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
   max-height:calc(100dvh - 28px);
   display:flex;
   flex-direction:column;
+  min-height:0;
 }
 
 .modal-close{
@@ -652,8 +464,10 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
   -webkit-overflow-scrolling:touch;
   min-height:0;
 
-  padding-bottom:calc(12px + env(safe-area-inset-bottom) + 76px);
+  direction:rtl;
+  padding-bottom:calc(12px + env(safe-area-inset-bottom) + 80px);
 }
+
 .modal-form h3{margin:0 0 6px}
 
 .modal-form input,
@@ -664,17 +478,21 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
   border:1px solid #e7e7e7;
   border-radius:12px;
   font-family:inherit;
-  font-size:16px; /* Android */
+  font-size:16px;
   line-height:1.2;
+  text-align:right;
+  background:#fff;
 }
+
 .modal-form textarea{min-height:110px; resize:vertical}
 
 .modal-form .two{
   display:grid;
-  grid-template-columns:1fr; /* موبايل */
+  grid-template-columns:1fr;
   gap:10px;
 }
 
+/* زر الإرسال ثابت وغمق */
 .btn-block{
   position:sticky;
   bottom:10px;
