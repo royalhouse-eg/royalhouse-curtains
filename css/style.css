@@ -531,4 +531,80 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
 
   box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
+/* ===== HEADER FORCE FIX (PUT THIS AT VERY END) ===== */
+
+:root{
+  --headerH: 78px; /* ارتفاع الهيدر */
+  --logoH: 62px;   /* حجم اللوجو */
+}
+
+.header{
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+
+  z-index: 9999 !important;
+
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body{
+  padding-top: var(--headerH) !important; /* عشان المحتوى مايدخلش تحت الهيدر */
+}
+
+/* ترتيب الهيدر: لوجو شمال - سوشيال وسط - منيو يمين */
+.header .container{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:10px !important;
+}
+
+/* تكبير اللوجو */
+.header .logo{
+  height: var(--logoH) !important;
+  width:auto !important;
+  flex:0 0 auto !important;
+}
+
+/* السوشيال وسط */
+.header .social-icons{
+  flex:1 !important;
+  display:flex !important;
+  justify-content:center !important;
+  gap:10px !important;
+  margin:0 !important;
+}
+
+/* المنيو يمين */
+.header .menu-toggle{
+  display:block !important;
+  font-size:28px !important;
+  line-height:1 !important;
+}
+
+/* لو عندك nav desktop مخلي الدنيا تتلخبط، خليه dropdown بس */
+.header .nav{
+  display:none !important;
+}
+
+/* Dropdown */
+.header .nav.open{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:12px !important;
+
+  position:absolute !important;
+  top:100% !important;
+  left:0 !important;
+  right:0 !important;
+
+  background:#fff !important;
+  padding:16px !important;
+  border-top:1px solid #eee !important;
+  box-shadow:0 10px 25px rgba(0,0,0,.08) !important;
+}
 
