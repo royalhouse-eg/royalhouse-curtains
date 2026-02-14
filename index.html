@@ -7,10 +7,7 @@
 
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome (icons) -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 
@@ -18,14 +15,10 @@
 
 <header class="header">
   <div class="container">
-
-    <!-- اللوجو -->
     <img src="images/logo.png" alt="Royal House Logo" class="logo">
 
-    <!-- زرار المنيو للموبايل -->
-    <div class="menu-toggle">☰</div>
+    <div class="menu-toggle" aria-label="Menu">☰</div>
 
-    <!-- المنيو -->
     <nav class="nav">
       <a href="#home">الرئيسية</a>
       <a href="#gallery">المعرض</a>
@@ -33,7 +26,6 @@
       <a href="#contact">تواصل</a>
     </nav>
 
-    <!-- السوشيال -->
     <div class="social-icons">
       <a href="https://www.facebook.com/share/1EacKgLkxf/?mibextid=wwXIfr" target="_blank" rel="noopener">
         <i class="fa-brands fa-facebook-f"></i>
@@ -45,16 +37,14 @@
         <i class="fa-brands fa-tiktok"></i>
       </a>
     </div>
-
   </div>
 </header>
-
 
 <section id="home" class="hero">
   <div class="hero-content">
     <h1>ROYAL HOUSE</h1>
     <p>Curtains gallery | ستاير مودرن وكلاسيك وخامات مستوردة</p>
-    <a href="#gallery" class="btn">عرض التصميمات</a>
+    <a href="#gallery" class="btn">شوف التصميمات</a>
   </div>
 </section>
 
@@ -71,25 +61,21 @@
       <button class="filter-btn filter-card" data-filter="classic" type="button">
         <span class="cat-title">كلاسيك</span>
       </button>
-
       <button class="filter-btn filter-card" data-filter="modern" type="button">
         <span class="cat-title">مودرن</span>
       </button>
-
       <button class="filter-btn filter-card" data-filter="accessories" type="button">
         <span class="cat-title">اكسسوارات</span>
       </button>
-
       <button class="filter-btn filter-card" data-filter="blackout" type="button">
         <span class="cat-title">بلاك اوت / كتان</span>
       </button>
-
       <button class="filter-btn filter-card" data-filter="roller" type="button">
         <span class="cat-title">رول / بلاك / زبرا</span>
       </button>
     </div>
 
-    <!-- بيتبني تلقائيًا من JS -->
+    <!-- ✅ واحد بس -->
     <div class="gallery-grid" id="galleryGrid"></div>
 
   </div>
@@ -97,17 +83,17 @@
 
 <!-- ===== Lightbox ===== -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
-  <button class="lb-close" id="lbClose" aria-label="Close" type="button">
+  <button class="lb-close" id="lbClose" aria-label="Close">
     <i class="fa-solid fa-xmark"></i>
   </button>
 
-  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous" type="button">
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">
     <i class="fa-solid fa-angle-right"></i>
   </button>
 
   <img id="lbImg" alt="Gallery image preview" />
 
-  <button class="lb-nav lb-next" id="lbNext" aria-label="Next" type="button">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">
     <i class="fa-solid fa-angle-left"></i>
   </button>
 </div>
@@ -118,8 +104,11 @@
   <form id="orderForm">
     <input id="custName" type="text" placeholder="الاسم" required>
     <input id="custPhone" type="tel" placeholder="رقم الموبايل" required>
-    <input id="width" type="number" placeholder="العرض (سم)" required>
-    <input id="height" type="number" placeholder="الارتفاع (سم)" required>
+
+    <div class="two">
+      <input id="width" type="number" placeholder="العرض (سم)" required>
+      <input id="height" type="number" placeholder="الارتفاع (سم)" required>
+    </div>
 
     <select id="type">
       <option value="classic">كلاسيك</option>
@@ -137,46 +126,30 @@
 <!-- ===== Contact ===== -->
 <section id="contact" class="contact">
   <div class="container">
-
-    <!-- 📞 الهاتف وواتساب -->
     <p class="contact-line">
       <i class="fa-solid fa-phone"></i>
       <a class="link" href="tel:+201061533348">+20 106 153 3348</a>
       &nbsp;|&nbsp;
-      <a class="link" href="https://wa.me/201061533348" target="_blank" rel="noopener">
-        WhatsApp
-      </a>
+      <a class="link" href="https://wa.me/201061533348" target="_blank" rel="noopener">WhatsApp</a>
     </p>
 
-    <!-- 📍 العنوان + الاتجاهات -->
     <p class="contact-line">
       <i class="fa-solid fa-location-dot"></i>
       مركز الحي الثاني نهاية شارع م حسب الله الكفراوي (الصعيدي القديم) بجوار راحه
       &nbsp;—&nbsp;
-      <a
-        class="link directions"
-        href="https://maps.app.goo.gl/iwMqokJNvCek7o1fA"
-        target="_blank"
-        rel="noopener"
-      >
-        Get Directions
-      </a>
+      <a class="link directions" href="https://maps.app.goo.gl/iwMqokJNvCek7o1fA?g_st=ic" target="_blank" rel="noopener">Get Directions</a>
     </p>
 
-    <!-- 🗺️ الخريطة -->
     <div class="map-wrap">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2498.020976282606!2d31.686909039237772!3d31.447519012366037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f9e318855490e3%3A0xa93b01bd93d8ebe6!2z2LHZiNmK2KfZhCDZh9in2YjYsyDYrNin2YTZitix2Yog2LPYqtin2KbYsSBSb3lhbCBIb3VzZSBDdXJ0YWlucyBEZXNpZ24!5e0!3m2!1sar!2seg!4v1770736168249!5m2!1sar!2seg"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen
         title="Royal House Location"
       ></iframe>
     </div>
-
   </div>
 </section>
-
 
 <footer class="footer">
   <p>© ROYAL HOUSE – Curtains gallery</p>
@@ -186,7 +159,7 @@
 <div class="modal" id="orderModal" aria-hidden="true">
   <div class="modal-card" role="dialog" aria-modal="true" aria-label="طلب تصميم">
 
-    <button class="modal-close" id="orderClose" aria-label="إغلاق" type="button">
+    <button class="modal-close" id="orderClose" aria-label="إغلاق">
       <i class="fa-solid fa-xmark"></i>
     </button>
 
@@ -225,9 +198,4 @@
 
 <script src="js/main.js"></script>
 </body>
-</html>
-
-
-
-
-
+</html>س
