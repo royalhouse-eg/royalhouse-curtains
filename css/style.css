@@ -1,3 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ROYAL HOUSE | Curtains Gallery</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container">
+    <img src="images/logo.png" alt="Royal House Logo" class="logo">
+
+    <div class="menu-toggle" aria-label="Menu">☰</div>
+
+    <nav class="nav">
+      <a href="#home">الرئيسية</a>
+      <a href="#gallery">المعرض</a>
+      <a href="#order">اطلب الآن</a>
+      <a href="#contact">تواصل</a>
+    </nav>
+
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/1EacKgLkxf/?mibextid=wwXIfr" target="_blank" rel="noopener">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/royal.house_eg" target="_blank" rel="noopener">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@royal.house_eg" target="_blank" rel="noopener">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>ROYAL HOUSE</h1>
+    <p>Curtains gallery | ستاير مودرن وكلاسيك وخامات مستوردة</p>
+    <a href="#gallery" class="btn">شوف التصميمات</a>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section id="gallery" class="gallery">
+  <div class="container">
+
+    <div class="section-head">
+      <h2>معرض الصور</h2>
+      <p class="muted">اختار التصنيف لعرض التصميمات</p>
+    </div>
+
+    <div class="filters filter-grid" role="tablist" aria-label="تصنيفات المعرض">
+      <button class="filter-btn filter-card" data-filter="classic" type="button">
+        <span class="cat-title">كلاسيك</span>
+      </button>
+      <button class="filter-btn filter-card" data-filter="modern" type="button">
+        <span class="cat-title">مودرن</span>
+      </button>
+      <button class="filter-btn filter-card" data-filter="accessories" type="button">
+        <span class="cat-title">اكسسوارات</span>
+      </button>
+      <button class="filter-btn filter-card" data-filter="blackout" type="button">
+        <span class="cat-title">بلاك اوت / كتان</span>
+      </button>
+      <button class="filter-btn filter-card" data-filter="roller" type="button">
+        <span class="cat-title">رول / بلاك / زبرا</span>
+      </button>
+    </div>
+
+    <!-- ✅ واحد بس -->
+    <div class="gallery-grid" id="galleryGrid"></div>
+
+  </div>
+</section>
+
+<!-- ===== Lightbox ===== -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Close">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">
+    <i class="fa-solid fa-angle-right"></i>
+  </button>
+
+  <img id="lbImg" alt="Gallery image preview" />
+
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">
+    <i class="fa-solid fa-angle-left"></i>
+  </button>
+</div>
+
+<!-- ===== Order (general form) ===== -->
+<section id="order" class="order">
+  <h2>اطلب ستارتك</h2>
+  <form id="orderForm">
+    <input id="custName" type="text" placeholder="الاسم" required>
+    <input id="custPhone" type="tel" placeholder="رقم الموبايل" required>
+
+    <div class="two">
+      <input id="width" type="number" placeholder="العرض (سم)" required>
+      <input id="height" type="number" placeholder="الارتفاع (سم)" required>
+    </div>
+
+    <select id="type">
+      <option value="classic">كلاسيك</option>
+      <option value="modern">مودرن</option>
+      <option value="accessories">اكسسوارات</option>
+      <option value="blackout">بلاك اوت / كتان</option>
+      <option value="roller">رول / بلاك / زبرا</option>
+    </select>
+
+    <textarea id="notes" placeholder="ملاحظات (اختياري)"></textarea>
+    <button type="submit">إرسال على واتساب</button>
+  </form>
+</section>
+
+<!-- ===== Contact ===== -->
+<section id="contact" class="contact">
+  <div class="container">
+    <p class="contact-line">
+      <i class="fa-solid fa-phone"></i>
+      <a class="link" href="tel:+201061533348">+20 106 153 3348</a>
+      &nbsp;|&nbsp;
+      <a class="link" href="https://wa.me/201061533348" target="_blank" rel="noopener">WhatsApp</a>
+    </p>
+
+    <p class="contact-line">
+      <i class="fa-solid fa-location-dot"></i>
+      مركز الحي الثاني نهاية شارع م حسب الله الكفراوي (الصعيدي القديم) بجوار راحه
+      &nbsp;—&nbsp;
+      <a class="link directions" href="https://maps.app.goo.gl/iwMqokJNvCek7o1fA?g_st=ic" target="_blank" rel="noopener">Get Directions</a>
+    </p>
+
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2498.020976282606!2d31.686909039237772!3d31.447519012366037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f9e318855490e3%3A0xa93b01bd93d8ebe6!2z2LHZiNmK2KfZhCDZh9in2YjYsyDYrNin2YTZitix2Yog2LPYqtin2KbYsSBSb3lhbCBIb3VzZSBDdXJ0YWlucyBEZXNpZ24!5e0!3m2!1sar!2seg!4v1770736168249!5m2!1sar!2seg"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Royal House Location"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© ROYAL HOUSE – Curtains gallery</p>
+</footer>
+
+<!-- ===== Order Modal (from Gallery image) ===== -->
+<div class="modal" id="orderModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="طلب تصميم">
+
+    <button class="modal-close" id="orderClose" aria-label="إغلاق">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="modal-grid">
+      <div class="modal-preview">
+        <img id="orderImg" alt="Preview" />
+        <p class="muted" id="orderImgLabel"></p>
+      </div>
+
+      <form id="orderModalForm" class="modal-form">
+        <h3>طلب تصميم</h3>
+
+        <input id="mName" type="text" placeholder="الاسم" required />
+        <input id="mPhone" type="tel" placeholder="رقم الموبايل" required />
+
+        <div class="two">
+          <input id="mWidth" type="number" placeholder="العرض (سم)" required />
+          <input id="mHeight" type="number" placeholder="الارتفاع (سم)" required />
+        </div>
+
+        <select id="mType">
+          <option value="classic">كلاسيك</option>
+          <option value="modern">مودرن</option>
+          <option value="accessories">اكسسوارات</option>
+          <option value="blackout">بلاك اوت / كتان</option>
+          <option value="roller">رول / بلاك / زبرا</option>
+        </select>
+
+        <textarea id="mNotes" placeholder="ملاحظات (اختياري)"></textarea>
+
+        <button type="submit" class="btn-block">إرسال على واتساب</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
 :root{
   --bg:#ffffff;
   --text:#111;
@@ -10,37 +211,30 @@
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+html, body{width:100%; overflow-x:hidden}
+
 body{
   margin:0;
   font-family:"Tajawal", system-ui, -apple-system, Segoe UI, Arial;
   background:var(--bg);
   color:var(--text);
 }
-html, body{
-  width:100%;
-  overflow-x:hidden;
-}
 
-img, iframe{
-  max-width:100%;
-}
+img, iframe{max-width:100%; display:block}
+
 .container{
-  width: min(var(--max), 100%);
-  padding-inline:16px;
+  width:min(var(--max), calc(100% - 32px));
   margin-inline:auto;
 }
 
 a{color:inherit; text-decoration:none}
 .muted{color:var(--muted); margin:0}
+.hidden{display:none !important}
 
-.hidden{ display:none !important; }
-
-/* =========================================================
-   HEADER (FINAL) - ثابت + يصغر مع الاسكرول (موبايل + ديسكتوب)
-========================================================= */
+/* ================= Header (always mobile-like) ================= */
 .header{
-  --padY: 14px;
-  --logoH: 78px;
+  --padY: 12px;
+  --logoH: 56px;
 
   position:sticky;
   top:0;
@@ -53,47 +247,42 @@ a{color:inherit; text-decoration:none}
   transition: background .25s ease, box-shadow .25s ease;
 }
 
+.header.shrink{
+  --padY: 6px;
+  --logoH: 42px;
+
+  background:rgba(255,255,255,.97);
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+
 .header .container{
   display:flex;
   align-items:center;
-  gap:16px;
-
-  padding: var(--padY) 0 !important;
-  transition: padding .25s ease;
+  justify-content:space-between;
+  gap:10px;
+  padding: var(--padY) 0;
 }
 
-.header .logo{
-  height: var(--logoH) !important;
+.logo{
+  height: var(--logoH);
   width:auto;
   object-fit:contain;
-  transition: height .25s ease;
 }
 
-/* زرار المنيو (مخفي على الديسكتوب) */
+.nav{display:none;}
 .menu-toggle{
-  display:none;
+  display:block;
   font-size:28px;
   cursor:pointer;
   user-select:none;
+  line-height:1;
 }
-
-.nav{
-  display:flex;
-  gap:18px;
-  margin-inline-start:auto;
-}
-.nav a{
-  font-size:15px;
-  letter-spacing:.2px;
-  padding:6px 0;
-  border-bottom:1px solid transparent;
-}
-.nav a:hover{border-bottom-color:var(--text)}
 
 .social-icons{
+  flex:1;
   display:flex;
-  gap:12px;
-  margin-inline-start:12px;
+  justify-content:center;
+  gap:10px;
 }
 .social-icons a{
   display:inline-flex;
@@ -103,38 +292,34 @@ a{color:inherit; text-decoration:none}
   height:34px;
   border:1px solid var(--line);
   border-radius:999px;
-  background:transparent;
-}
-.social-icons i{
-  font-size:14px;
-  color:var(--text);
 }
 
-/* بعد الاسكرول */
-.header.shrink{
-  --padY: 6px;
-  --logoH: 46px;
+/* dropdown menu */
+.nav.open{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 
-  background:rgba(255,255,255,.97);
-  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  position:absolute;
+  top:100%;
+  left:0;
+  right:0;
+
+  background:#fff;
+  padding:16px;
+
+  border-top:1px solid var(--line);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  z-index:999;
 }
-
-/* موبايل */
-@media (max-width:980px){
-  .header{
-    --padY: 12px;
-    --logoH: 56px;
-  }
-
-  .header.shrink{
-    --padY: 6px;
-    --logoH: 42px;
-  }
+.nav.open a{
+  font-size:16px;
+  padding:10px 0;
+  border-bottom:1px solid #f0f0f0;
 }
+.nav.open a:last-child{border-bottom:none}
 
-/* =========================================================
-   HERO
-========================================================= */
+/* ================= Hero ================= */
 .hero{
   min-height:70vh;
   display:flex;
@@ -172,73 +357,41 @@ a{color:inherit; text-decoration:none}
   font-size:15px;
   transition:.2s ease;
 }
-.btn:hover{
-  background:#fff;
-  color:#111;
-}
+.btn:hover{background:#fff; color:#111}
 
-/* =========================================================
-   SECTIONS
-========================================================= */
+/* ================= Sections ================= */
 section{padding:54px 0}
+h2{margin:0; font-size:26px; letter-spacing:.2px}
 
-h2{
-  margin:0;
-  font-size:26px;
-  letter-spacing:.3px;
-}
-
-/* =========================================================
-   GALLERY SECTION
-========================================================= */
+/* ================= Gallery ================= */
 .gallery{
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
 }
 
-/* ===== Gallery Head (Premium spacing) ===== */
 .section-head{
   display:flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
   gap:8px;
-  margin-bottom:26px;
+  margin-bottom:22px;
 }
-
 .section-head h2{
-  font-size:28px;
+  font-size:26px;
   font-weight:500;
-  letter-spacing:.2px;
-  margin:0;
 }
-
 .section-head .muted{
-  font-size:14px;
+  font-size:13px;
   font-weight:400;
   color:#777;
-  margin:0;
 }
 
-@media (max-width: 980px){
-  .section-head{
-    margin-bottom:22px;
-  }
-  .section-head h2{
-    font-size:26px;
-  }
-  .section-head .muted{
-    font-size:13px;
-  }
-}
-
-/* =========================================================
-   CATEGORY CARDS (Mobile Full Width)
-========================================================= */
+/* Category cards */
 .filters.filter-grid{
   display:grid;
   grid-template-columns:1fr;
-  gap:16px;
+  gap:14px;
   margin:18px 0 24px;
 }
 
@@ -246,8 +399,8 @@ h2{
   width:100%;
   border:none;
   background:#f6f6f6;
-  border-radius:22px;
-  padding:22px 20px;
+  border-radius:18px;
+  padding:16px 16px;
   cursor:pointer;
 
   display:flex;
@@ -261,62 +414,24 @@ h2{
 
   color:#111;
 }
-
 .filter-btn.filter-card .cat-title{
-  font-size:26px;
-  font-weight:500;
-  letter-spacing:0;
+  font-size:20px;     /* واضح ومش مبالغ */
+  font-weight:500;    /* زي عنوان معرض الصور */
+  letter-spacing:.2px;
   color:#111;
 }
+.filter-btn.filter-card:active{transform:scale(0.98)}
+.filter-btn.filter-card.active{background:#111}
+.filter-btn.filter-card.active .cat-title{color:#fff}
 
-/* ✅ موبايل فقط */
-@media (max-width: 768px){
-  .filter-btn.filter-card{
-    padding:16px 16px;     /* يقلل حجم الكارت */
-    border-radius:18px;
-  }
-  .filter-btn.filter-card .cat-title{
-    font-size:20px;        /* حجم مناسب للموبايل */
-    font-weight:400;       /* مش تقيل */
-  }
-}
-
-.filter-btn.filter-card:active{
-  transform:scale(0.98);
-}
-
-.filter-btn.filter-card.active{
-  background:#111;
-}
-.filter-btn.filter-card.active .cat-title{
-  color:#fff;
-}
-
-/* منع الـ focus يغير لون كروت التصنيفات */
+/* امنع الـ focus يغمّق */
 .filter-btn.filter-card:focus,
 .filter-btn.filter-card:focus-visible{
   outline:none;
   background:#f6f6f6;
 }
 
-/* Tablet */
-@media (min-width:768px){
-  .filters.filter-grid{
-    grid-template-columns:repeat(2, 1fr);
-  }
-}
-
-/* Desktop */
-@media (min-width:1024px){
-  .filters.filter-grid{
-    grid-template-columns:repeat(3, 1fr);
-  }
-}
-
-
-/* =========================================================
-   GALLERY GRID
-========================================================= */
+/* Gallery grid */
 .gallery-grid{
   display:grid;
   grid-template-columns:repeat(2, minmax(0, 1fr));
@@ -332,21 +447,16 @@ h2{
   background:#fafafa;
   position:relative;
 }
-
 .g-item img{
   width:100%;
   height:220px;
   object-fit:cover;
-  display:block;
-  transition: transform .2s ease;
+  transition:transform .2s ease;
 }
-
-/* Hover للديسكتوب فقط */
 @media (hover:hover){
-  .g-item:hover img{ transform:scale(1.04); }
+  .g-item:hover img{transform:scale(1.04)}
 }
 
-/* زر طلب على كل صورة */
 .g-item .order-btn{
   position:absolute;
   left:10px;
@@ -361,28 +471,10 @@ h2{
   gap:8px;
   align-items:center;
 }
-.g-item .order-btn i{font-size:13px;}
-.g-item .order-btn:hover{ background:#fff; }
 
-/* Tablets */
-@media (min-width:700px){
-  .gallery-grid{
-    grid-template-columns:repeat(3, minmax(0, 1fr));
-    gap:14px;
-  }
-  .g-item img{ height:240px; }
-}
+/* ================= Order Form (Android safe) ================= */
+.order h2{text-align:center; margin-bottom:18px}
 
-/* Desktop */
-@media (min-width:1024px){
-  .gallery-grid{
-    grid-template-columns:repeat(4, minmax(0, 1fr));
-    gap:16px;
-  }
-  .g-item img{ height:260px; }
-}
-
-/* ===== Order (Android Safe) ===== */
 #orderForm{
   width:100%;
   max-width:720px;
@@ -390,11 +482,6 @@ h2{
   display:grid;
   gap:12px;
 }
-
-#orderForm *{
-  box-sizing:border-box;
-}
-
 #orderForm input,
 #orderForm select,
 #orderForm textarea,
@@ -402,7 +489,6 @@ h2{
   width:100%;
   max-width:100%;
 }
-
 #orderForm input,
 #orderForm select,
 #orderForm textarea{
@@ -410,15 +496,12 @@ h2{
   border:1px solid var(--line);
   border-radius:14px;
   font-family:inherit;
-  font-size:16px;      /* يمنع zoom ويثبت المقاسات على أندرويد */
+  font-size:16px;      /* مهم لأندرويد */
   line-height:1.2;
   outline:none;
   background:#fff;
 }
-
-#orderForm textarea{
-  min-height:120px;
-}
+#orderForm textarea{min-height:120px; resize:vertical}
 
 #orderForm button{
   padding:14px 16px;
@@ -431,30 +514,17 @@ h2{
   font-size:16px;
 }
 
-/* لو عندك حقول العرض والارتفاع جنب بعض */
 #orderForm .two{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr;
   gap:10px;
 }
 
-@media (max-width:480px){
-  #orderForm .two{
-    grid-template-columns:1fr; /* لو الشاشة صغيرة قوي، خليهم تحت بعض */
-  }
-}
-/* =========================================================
-   CONTACT
-========================================================= */
-.contact{
-  text-align:center;
-}
-
-.link{
-  border-bottom:1px solid transparent;
-  padding-bottom:2px;
-}
-.link:hover{ border-bottom-color: var(--text); }
+/* ================= Contact ================= */
+.contact{text-align:center}
+.contact-line{margin:10px 0; line-height:1.8}
+.link{border-bottom:1px solid transparent; padding-bottom:2px}
+.link:hover{border-bottom-color:var(--text)}
 
 .map-wrap{
   width:min(900px, calc(100% - 32px));
@@ -463,15 +533,9 @@ h2{
   border-radius:14px;
   overflow:hidden;
 }
-.contact iframe{
-  width:100%;
-  height:320px;
-  border:0;
-}
+.contact iframe{width:100%; height:320px; border:0}
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* ================= Footer ================= */
 .footer{
   border-top:1px solid var(--line);
   padding:18px 0;
@@ -479,9 +543,7 @@ h2{
   color:var(--muted);
 }
 
-/* =========================================================
-   LIGHTBOX
-========================================================= */
+/* ================= Lightbox ================= */
 .lightbox{
   position:fixed;
   inset:0;
@@ -493,7 +555,6 @@ h2{
   padding:18px;
 }
 .lightbox.open{display:flex}
-
 .lightbox img{
   max-width:min(980px, 92vw);
   max-height:82vh;
@@ -501,13 +562,8 @@ h2{
   border:1px solid rgba(255,255,255,.18);
   background:#000;
 }
-
-.lb-close{
+.lb-close, .lb-nav{
   position:absolute;
-  top:14px;
-  right:14px;
-  width:42px;
-  height:42px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.22);
   background:transparent;
@@ -516,35 +572,21 @@ h2{
   display:grid;
   place-items:center;
 }
-
-.lb-nav{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:46px;
-  height:46px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.22);
-  background:transparent;
-  color:#fff;
-  cursor:pointer;
-  display:grid;
-  place-items:center;
-}
+.lb-close{top:14px; right:14px; width:42px; height:42px}
+.lb-nav{top:50%; transform:translateY(-50%); width:46px; height:46px}
 .lb-prev{right:14px}
 .lb-next{left:14px}
-/* =========================================================
-   MODAL (Order from image) - ANDROID FIX
-========================================================= */
+
+/* ================= Modal (Order from image) — One style for all ================= */
 .modal{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.55);
   display:none;
   z-index:1000;
-  padding:16px;
 
-  /* مهم لأندرويد */
+  padding:14px;
+  padding-bottom:calc(14px + env(safe-area-inset-bottom));
   height:100dvh;
 }
 .modal.open{
@@ -553,22 +595,19 @@ h2{
   justify-content:center;
 }
 
-/* الكارت */
 .modal-card{
-  width:min(980px, 96vw);
+  width:min(520px, 96vw);       /* نفس شكل الموبايل على اللاب */
   background:#fff;
   border-radius:16px;
   border:1px solid rgba(0,0,0,.08);
   position:relative;
   overflow:hidden;
 
-  /* مهم: خلي الكارت مايزيدش عن ارتفاع الشاشة الحقيقي */
-  max-height: calc(var(--vvh, 100dvh) - 32px);
+  max-height:calc(100dvh - 28px);
   display:flex;
   flex-direction:column;
 }
 
-/* زر الإغلاق */
 .modal-close{
   position:absolute;
   top:10px; right:10px;
@@ -579,81 +618,69 @@ h2{
   cursor:pointer;
   display:grid;
   place-items:center;
-  z-index:5;
+  z-index:10;
 }
 
-/* تقسيم المحتوى */
 .modal-grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:0;
+  display:flex;
+  flex-direction:column;
   height:100%;
+  min-height:0;
 }
 
-/* جزء الصورة */
 .modal-preview{
-  padding:14px;
-  border-left:1px solid #eee;
+  padding:12px;
   background:#fafafa;
+  border-bottom:1px solid #eee;
 }
 .modal-preview img{
   width:100%;
-  height:420px;
+  height:220px;
   object-fit:cover;
   border-radius:12px;
   border:1px solid #eee;
-  display:block;
 }
+#orderImgLabel{margin-top:8px}
 
-/* جزء الفورم */
 .modal-form{
-  padding:18px;
+  padding:14px;
   display:flex;
   flex-direction:column;
   gap:10px;
 
-  /* مهم: خلي الفورم يعمل سكرول بدل ما يزق الزر لبرا */
   overflow:auto;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling:touch;
+  min-height:0;
 
-  /* مساحة تحت للزر sticky + safe area */
-  padding-bottom: calc(16px + env(safe-area-inset-bottom) + 70px);
+  padding-bottom:calc(12px + env(safe-area-inset-bottom) + 76px);
 }
-
-.modal-form h3{ margin:0 0 6px; }
+.modal-form h3{margin:0 0 6px}
 
 .modal-form input,
 .modal-form select,
 .modal-form textarea{
   width:100%;
-  max-width:100%;
   padding:12px;
   border:1px solid #e7e7e7;
   border-radius:12px;
   font-family:inherit;
-
-  /* 16px تمنع Zoom وتقلل مشاكل أندرويد */
-  font-size:16px;
+  font-size:16px; /* Android */
+  line-height:1.2;
 }
+.modal-form textarea{min-height:110px; resize:vertical}
 
-.modal-form textarea{
-  min-height:110px;
-  resize:vertical;
-}
-
-.two{
+.modal-form .two{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr; /* موبايل */
   gap:10px;
 }
 
-/* زر الإرسال يبقى ظاهر دايمًا */
-.modal-form .btn-block{
-  position: sticky;
-  bottom: 10px;
-  z-index: 2;
+.btn-block{
+  position:sticky;
+  bottom:10px;
+  z-index:2;
 
-  padding:12px 14px;
+  padding:14px 16px;
   border:1px solid #111;
   background:#111;
   color:#fff;
@@ -662,79 +689,5 @@ h2{
   font-family:inherit;
   font-size:16px;
 
-  /* شكل أحلى مع sticky */
-  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
-
-/* موبايل */
-@media (max-width: 900px){
-  .modal-grid{ grid-template-columns: 1fr; }
-  .modal-preview{ border-left:none; border-bottom:1px solid #eee; }
-  .modal-preview img{ height:240px; }
-}
-
-/* ===== Fix Android Form Width ===== */
-#orderForm input,
-#orderForm select,
-#orderForm textarea{
-  width:100%;
-}
-
-/* ===== MOBILE HEADER FIX (put at END of style.css) ===== */
-@media (max-width: 1024px){
-
-  .header .container{
-    display:flex !important;
-    align-items:center !important;
-    justify-content:space-between !important;
-    gap:10px !important;
-    flex-wrap:nowrap !important;
-  }
-
-  /* اخفي روابط المنيو في الموبايل */
-  .nav{
-    display:none !important;
-  }
-
-  /* خلي زر المنيو يظهر */
-  .menu-toggle{
-    display:block !important;
-    font-size:28px !important;
-    line-height:1 !important;
-    cursor:pointer !important;
-  }
-
-  /* اللوجو مايصغرش/يتكسر */
-  .header .logo{
-    flex:0 0 auto !important;
-    max-width:72px !important;
-  }
-
-  /* السوشيال ما تكبرش وتكسر الهيدر */
-  .social-icons{
-    flex:1 !important;
-    display:flex !important;
-    justify-content:center !important;
-    gap:10px !important;
-    margin:0 !important;
-    min-width:0 !important;
-  }
-
-  .social-icons a{
-    width:34px !important;
-    height:34px !important;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
