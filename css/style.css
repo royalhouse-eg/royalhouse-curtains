@@ -508,3 +508,22 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
 
   box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
+
+/* ===== Ramadan (Black & White) ===== */
+.ramadan-bar{
+  position: sticky;
+  top: 0;
+  z-index: 10001;
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 14px;
+  letter-spacing: .2px;
+  border-bottom: 1px solid #222;
+}
+
+/* عشان لو عندك هيدر fixed، الشريط يجي فوقه */
+.ramadan-bar + .header{
+  top: 36px; /* ارتفاع الشريط تقريبًا */
+}
