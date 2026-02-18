@@ -279,3 +279,22 @@ document.addEventListener("DOMContentLoaded",()=>{
   initLightbox();   // ✅ لايت بوكس
 });
 
+
+// ===== Ramadan Mode (Auto ON) =====
+(function(){
+  const bar = document.getElementById("ramadanBar");
+  if(!bar) return;
+
+  // ✅ عدّل المدة دي حسب رمضان (ميلادي)
+  // مثال: من 2026-02-18 إلى 2026-03-20 (غيّرهم وقتها)
+  const START = new Date("2026-02-18T00:00:00");
+  const END   = new Date("2026-03-20T23:59:59");
+
+  const now = new Date();
+
+  if(now >= START && now <= END){
+    bar.hidden = false;
+  } else {
+    bar.hidden = true;
+  }
+})();
