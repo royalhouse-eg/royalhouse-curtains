@@ -11,10 +11,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 
-<body>
-<div id="ramadanBar" class="ramadan-bar" hidden>
-  رمضان كريم 🌙 خصومات خاصة لفترة محدودة
-</div>
 
   <<header class="header">
   <div class="container">
@@ -49,7 +45,41 @@
   <div class="hero-content">
     <h1>ROYAL HOUSE</h1>
     <p>Curtains gallery | ستاير مودرن وكلاسيك وخامات مستوردة</p>
-    <a href="#gallery" class="btn">شوف التصميمات</a>
+    <a href="#gallery" class="btn">عرض التصميمات</a>
+    /* ===== Ramadan Greeting ===== */
+.ramadan-greeting{
+  margin-top:34px;
+  text-align:center;
+  animation:fadeUp 1s ease forwards;
+}
+
+.ramadan-main{
+  font-size:34px;
+  font-weight:800;
+  color:#fff;
+  letter-spacing:1px;
+  margin:0;
+  animation:pulseGlow 2.5s ease-in-out infinite;
+}
+
+.ramadan-sub{
+  font-size:18px;
+  margin-top:8px;
+  color:rgba(255,255,255,.9);
+}
+
+/* حركة دخول ناعمة */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(15px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* نبض خفيف للنص */
+@keyframes pulseGlow{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.04);}
+  100%{transform:scale(1);}
+}
   </div>
 </section>
 
@@ -204,5 +234,6 @@
 <script src="js/main.js"></script>
 </body>
 </html>س
+
 
 
