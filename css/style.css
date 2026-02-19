@@ -544,3 +544,124 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
   100%{transform:scale(1);}
 }
 
+
+/* ================= RAMADAN FX (lanterns + falling stars) ================= */
+.hero{ position:relative; overflow:hidden; }
+
+.ramadan-fx{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:1;              /* تحت المحتوى */
+}
+
+/* خيط بسيط فوق */
+.ramadan-fx::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:16px;
+  height:1px;
+  background:rgba(255,255,255,.35);
+}
+
+/* ========== Lanterns ========== */
+.fx-lantern{
+  position:absolute;
+  top:16px;
+  width:34px;
+  height:60px;
+  transform-origin: top center;
+  animation: lanternSwing 3.2s ease-in-out infinite;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,.25));
+}
+
+/* الحبل */
+.fx-lantern::before{
+  content:"";
+  position:absolute;
+  top:-18px;
+  left:50%;
+  width:2px;
+  height:18px;
+  transform:translateX(-50%);
+  background:rgba(255,255,255,.6);
+}
+
+/* جسم الفانوس (أبيض/أسود) */
+.fx-lantern::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border:2px solid rgba(255,255,255,.85);
+  border-radius:10px;
+  background:rgba(0,0,0,.25);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.08);
+}
+
+/* تفاصيل داخلية بسيطة */
+.fx-lantern{
+  background:
+    linear-gradient(to bottom, transparent 0 10px, rgba(255,255,255,.25) 10px 12px, transparent 12px 100%),
+    radial-gradient(circle at 50% 35%, rgba(255,255,255,.35), transparent 55%);
+  border-radius:10px;
+}
+
+/* أماكن الفوانيس */
+.fx-lantern.l1{ left:12%; animation-duration:3.6s; }
+.fx-lantern.l2{ left:45%; animation-duration:3.0s; }
+.fx-lantern.l3{ left:78%; animation-duration:3.8s; }
+
+@keyframes lanternSwing{
+  0%   { transform: rotate(6deg); }
+  50%  { transform: rotate(-6deg); }
+  100% { transform: rotate(6deg); }
+}
+
+/* ========== Falling stars ========== */
+.fx-star{
+  position:absolute;
+  top:-40px;
+  width:10px;
+  height:10px;
+  border:2px solid rgba(255,255,255,.85);
+  border-radius:2px;
+  transform: rotate(45deg);
+  opacity:.85;
+  animation: starFall 6.5s linear infinite;
+}
+
+/* ذيل خفيف */
+.fx-star::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:2px;
+  height:22px;
+  transform: translate(-50%,-10%) rotate(-45deg);
+  background:rgba(255,255,255,.45);
+  border-radius:999px;
+}
+
+/* توزيع النجوم + تأخير */
+.fx-star.s1{ left:8%;  animation-delay:0s;   animation-duration:6.2s; }
+.fx-star.s2{ left:22%; animation-delay:1.2s; animation-duration:7.0s; }
+.fx-star.s3{ left:40%; animation-delay:0.6s; animation-duration:6.6s; }
+.fx-star.s4{ left:58%; animation-delay:1.8s; animation-duration:7.4s; }
+.fx-star.s5{ left:74%; animation-delay:0.9s; animation-duration:6.8s; }
+.fx-star.s6{ left:90%; animation-delay:2.1s; animation-duration:7.2s; }
+
+@keyframes starFall{
+  0%   { transform: translateY(-30px) rotate(45deg); opacity:0; }
+  10%  { opacity:.9; }
+  100% { transform: translateY(120vh) rotate(45deg); opacity:0; }
+}
+
+/* خلي محتوى الهيرو فوق التأثير */
+.hero-content{ position:relative; z-index:2; }
+
+/* موبايل: صغّر الفوانيس شوية */
+@media (max-width:768px){
+  .fx-lantern{ width:28px; height:50px; }
+  .ramadan-fx::before{ top:12px; }
+}
