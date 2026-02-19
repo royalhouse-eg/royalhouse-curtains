@@ -545,82 +545,69 @@ h2{margin:0; font-size:26px; letter-spacing:.2px}
 }
 
 
-/* =============================
-   Ramadan Lantern - Black & White
-============================= */
-
+/* عشان الفانوس يتموضع جوه الهيرو */
 .hero {
   position: relative;
   overflow: hidden;
 }
 
+/* جسم الفانوس */
 .ramadan-lantern {
   position: absolute;
-  top: 80px;
-  left: 20px;
+  top: 40px;
+  right: 40px;   /* لو عايزه شمال غيرها لـ left */
   width: 60px;
-  z-index: 5;
+  height: 120px;
+  z-index: 3;
   animation: swing 4s ease-in-out infinite;
 }
 
+/* الجزء العلوي */
 .lantern-top {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 15px;
   background: #000;
   margin: 0 auto;
-  border-radius: 4px 4px 0 0;
+  border-radius: 3px;
 }
 
+/* جسم الفانوس */
 .lantern-body {
   width: 60px;
-  height: 90px;
+  height: 80px;
   background: #111;
   border-radius: 30px;
   position: relative;
-  box-shadow: 0 0 10px rgba(255,255,255,0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(255,255,255,0.2);
 }
 
+/* الإضاءة الداخلية */
 .lantern-light {
-  width: 30px;
-  height: 50px;
-  background: #fff;
-  border-radius: 15px;
-  opacity: 0.15;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25px;
+  height: 40px;
+  background: radial-gradient(circle, #fff 0%, #ccc 60%, transparent 80%);
+  border-radius: 50%;
+  opacity: 0.8;
 }
 
+/* الجزء السفلي */
 .lantern-bottom {
   width: 20px;
-  height: 20px;
+  height: 15px;
   background: #000;
   margin: 0 auto;
-  border-radius: 0 0 10px 10px;
+  border-radius: 3px;
 }
 
-/* حركة خفيفة */
+/* حركة يمين شمال خفيفة */
 @keyframes swing {
-  0%   { transform: rotate(-4deg); }
-  50%  { transform: rotate(4deg); }
-  100% { transform: rotate(-4deg); }
+  0% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+  100% { transform: rotate(-3deg); }
 }
 
-/* موبايل */
-@media (max-width: 768px) {
-  .ramadan-lantern {
-    width: 45px;
-    top: 70px;
-    left: 10px;
-  }
-
-  .lantern-body {
-    width: 45px;
-    height: 70px;
-  }
-
-  .lantern-light {
-    width: 20px;
-    height: 35px;
-  }
-}
